@@ -1,2731 +1,3261 @@
-Log in
-You said:
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Monica Unida | softly building · quietly curious</title>
-  <!-- Google Fonts: clean, modern sans-serif -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sheena F. Ugalino | Student Portfolio</title>
+
+<meta name="description" content="Portfolio of Sheena F. Ugalino, a Grade 7 student, creative learner, dreamer, and future doctor.">
+
+<style>
+
+/* =========================================================
+   GOOGLE FONTS
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root {
+    --lilac-50: #fbf8ff;
+    --lilac-100: #f4ecff;
+    --lilac-200: #e8d9ff;
+    --lilac-300: #d6bdf5;
+    --lilac-400: #bc94e7;
+    --lilac-500: #9b6dcc;
+    --lilac-600: #7d4faf;
+    --lilac-700: #623c8b;
+
+    --plum: #42264f;
+    --dark: #29212f;
+    --gray: #756c7d;
+
+    --pink: #f7dce9;
+    --peach: #ffe7dc;
+    --cream: #fffaf3;
+    --sage: #dfede6;
+    --white: #ffffff;
+
+    --shadow: 0 20px 60px rgba(76,45,101,.10);
+
+    --max-width: 1180px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--lilac-50);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--lilac-300);
+    color: var(--plum);
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(125,79,175,.08) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(3px);
+    opacity: .55;
+
+    animation: blobMove 12s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 480px;
+    height: 480px;
+    background: var(--lilac-200);
+
+    top: -220px;
+    left: -180px;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--pink);
+
+    right: -180px;
+    top: 25%;
+
+    animation-delay: -4s;
+}
+
+.blob-3 {
+    width: 360px;
+    height: 360px;
+    background: var(--sage);
+
+    bottom: -180px;
+    left: 30%;
+
+    animation-delay: -7s;
+}
+
+@keyframes blobMove {
+
+    0%,100% {
+        transform: translate(0,0) scale(1);
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #fff9e8 0%, #ffeef8 100%);
-      color: #2e2c3a;
-      line-height: 1.5;
-      padding: 2rem 1.5rem;
-      min-height: 100vh;
+    50% {
+        transform: translate(35px,-30px) scale(1.08);
     }
 
-    /* Pastel color palette: yellow, pink, purple, blue */
-    :root {
-      --pastel-yellow: #fff0cf;
-      --pastel-pink: #ffe2f0;
-      --pastel-purple: #e9dcff;
-      --pastel-blue: #d4eaff;
-      --soft-lavender: #cbb9ff;
-      --card-bg: rgba(255, 253, 250, 0.92);
-      --accent-purple: #b49bdf;
-      --accent-pink: #f5b0d0;
-      --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
-      --shadow-hover: 0 24px 36px -12px rgba(0, 0, 0, 0.12);
-      --text-dark: #403d52;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(1100px,92%);
+
+    padding: 11px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,.78);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255,255,255,.9);
+
+    border-radius: 100px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(65,42,85,.09);
+
+    z-index: 1000;
+
+    transition: .3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255,255,255,.92);
+
+    box-shadow:
+        0 15px 50px
+        rgba(65,42,85,.16);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 800;
+    color: var(--plum);
+}
+
+.brand-mark {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--lilac-300),
+            var(--pink)
+        );
+
+    color: var(--lilac-700);
+
+    font-weight: 900;
+
+    box-shadow:
+        inset 0 0 0 4px rgba(255,255,255,.5);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    padding: 9px 13px;
+
+    border-radius: 30px;
+
+    font-size: .85rem;
+    font-weight: 600;
+
+    color: #665c6d;
+
+    transition: .25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: var(--lilac-100);
+    color: var(--lilac-700);
+}
+
+.menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--lilac-100);
+
+    color: var(--plum);
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    width: min(var(--max-width),90%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding:
+        140px 0 80px;
+}
+
+
+/* LEFT */
+
+.hero-content {
+    position: relative;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 14px;
+
+    background: rgba(255,255,255,.78);
+
+    border: 1px solid rgba(255,255,255,.9);
+
+    border-radius: 50px;
+
+    color: var(--lilac-700);
+
+    font-size: .78rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px
+        rgba(67,42,88,.06);
+
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--lilac-500);
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(155,109,204,.45);
     }
 
-    /* main container – elegant & centered */
-    .portfolio {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      backdrop-filter: blur(2px);
-      border-radius: 2.5rem;
-      padding: 2rem 2rem;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+    70% {
+        box-shadow:
+            0 0 0 9px
+            rgba(155,109,204,0);
     }
 
-    /* smooth entrance animation */
-    @keyframes floatRise {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(155,109,204,0);
     }
 
-    .portfolio > * {
-      animation: floatRise 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
-      opacity: 0;
+}
+
+.hero h1 {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(3.8rem,6vw,6.8rem);
+
+    line-height: .88;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 .hello {
+    display: block;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: .36em;
+
+    letter-spacing: 0;
+
+    font-weight: 600;
+
+    color: var(--gray);
+
+    margin-bottom: 15px;
+}
+
+.first-name {
+    color: var(--lilac-600);
+    font-style: italic;
+}
+
+.last-name {
+    display: block;
+    color: var(--dark);
+}
+
+.hero-description {
+    max-width: 580px;
+
+    font-size: 1.03rem;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 14px 21px;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+
+    font-size: .9rem;
+
+    transition: .3s ease;
+
+    cursor: pointer;
+
+    overflow: hidden;
+}
+
+.button-primary {
+    background: var(--plum);
+    color: white;
+
+    box-shadow:
+        0 15px 30px
+        rgba(66,38,79,.2);
+}
+
+.button-primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(66,38,79,.27);
+}
+
+.button-outline {
+    background: rgba(255,255,255,.75);
+
+    border: 1px solid #e6dbea;
+
+    color: var(--plum);
+}
+
+.button-outline:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   RIGHT SIDE PHOTO
+========================================================= */
+
+.hero-photo {
+    position: relative;
+
+    height: 570px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Main photo frame */
+
+.photo-frame {
+    position: relative;
+
+    width: 390px;
+    height: 500px;
+
+    padding: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d8c1fa,
+            #f8ddea,
+            #fff0df
+        );
+
+    border-radius:
+        48% 48%
+        45% 45%;
+
+    transform: rotate(4deg);
+
+    box-shadow:
+        25px 30px 70px
+        rgba(76,45,101,.18);
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius:
+        45% 45%
+        42% 42%;
+
+    display: block;
+
+    transition:
+        transform .6s ease;
+}
+
+.photo-frame:hover img {
+    transform: scale(1.04);
+}
+
+
+/* Decorative background */
+
+.hero-photo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 370px;
+    height: 370px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216,193,250,.45);
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-10deg);
+
+    z-index: 0;
+}
+
+
+/* Floating decorations */
+
+.photo-decoration {
+    position: absolute;
+
+    color: var(--lilac-600);
+
+    font-size: 2.5rem;
+
+    z-index: 5;
+
+    animation:
+        photoFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+.decoration-one {
+    top: 45px;
+    right: 25px;
+}
+
+.decoration-two {
+    bottom: 55px;
+    left: 25px;
+
+    animation-delay: -2s;
+}
+
+@keyframes photoFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
     }
 
-    /* staggered animation */
-    .hero-section { animation-delay: 0.05s; }
-    .about-section { animation-delay: 0.12s; }
-    .skills-section { animation-delay: 0.19s; }
-    .contact-section { animation-delay: 0.26s; }
-    .footer-note { animation-delay: 0.33s; }
-
-    /* hero section: profile + intro */
-    .hero-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      justify-content: center;
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(12deg);
     }
 
-    .profile-placeholder {
-      flex-shrink: 0;
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(135deg, #ffe0b5, #ffcfdf, #d9c7ff);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 25px rgba(180, 140, 200, 0.2);
-      transition: all 0.4s ease;
-      border: 4px solid white;
+}
+
+
+/* Photo labels */
+
+.photo-card {
+    position: absolute;
+
+    padding: 13px 18px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    border-radius: 18px;
+
+    color: var(--plum);
+
+    font-size: .8rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 18px 40px
+        rgba(64,39,82,.13);
+
+    z-index: 10;
+}
+
+.photo-card-one {
+    top: 110px;
+    left: 0;
+
+    transform: rotate(-8deg);
+}
+
+.photo-card-two {
+    right: -15px;
+    bottom: 110px;
+
+    transform: rotate(7deg);
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section {
+    width: min(var(--max-width),90%);
+
+    margin: auto;
+
+    padding: 110px 0;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-number {
+    font-size: .72rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: var(--lilac-600);
+
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2.6rem,5vw,4.5rem);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    color: var(--plum);
+}
+
+.section-header p {
+    max-width: 650px;
+
+    margin-top: 16px;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        .75fr
+        1.25fr;
+
+    gap: 25px;
+}
+
+.glass-card {
+    background:
+        rgba(255,255,255,.72);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+    padding: 32px;
+}
+
+.profile-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(235,220,255,.8),
+            rgba(255,230,239,.75)
+        );
+
+    text-align: center;
+}
+
+.profile-icon {
+    width: 145px;
+    height: 145px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        rgba(255,255,255,.8);
+
+    color: var(--lilac-700);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 3.5rem;
+
+    box-shadow:
+        0 20px 45px
+        rgba(80,50,105,.1);
+}
+
+.profile-card h3 {
+    font-size: 1.45rem;
+    color: var(--plum);
+}
+
+.nickname {
+    color: var(--lilac-600);
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+    margin-top: 3px;
+}
+
+.details {
+    margin-top: 25px;
+
+    display: grid;
+
+    gap: 10px;
+
+    text-align: left;
+}
+
+.detail {
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    padding: 11px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius: 15px;
+}
+
+.detail-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: var(--lilac-100);
+}
+
+.detail small {
+    color: var(--gray);
+}
+
+.about-copy {
+    color: var(--gray);
+
+    line-height: 1.85;
+
+    font-size: 1rem;
+}
+
+.about-copy p + p {
+    margin-top: 17px;
+}
+
+.quote {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: var(--lilac-100);
+
+    border-left:
+        4px solid
+        var(--lilac-500);
+
+    border-radius:
+        0 18px 18px 0;
+
+    color: var(--plum);
+
+    font-weight: 700;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+}
+
+.skill {
+    background: white;
+
+    border:
+        1px solid
+        #eee6f4;
+
+    border-radius: 25px;
+
+    padding: 27px 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 35px
+        rgba(62,39,82,.05);
+
+    transition: .35s ease;
+}
+
+.skill:hover {
+    transform:
+        translateY(-9px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 25px 45px
+        rgba(62,39,82,.11);
+}
+
+.skill-icon {
+    font-size: 2.1rem;
+    margin-bottom: 9px;
+}
+
+.skill h3 {
+    font-size: .95rem;
+    color: var(--plum);
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+.achievements {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 20px;
+}
+
+.achievement {
+    position: relative;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        #eee6f4;
+
+    box-shadow:
+        0 15px 40px
+        rgba(62,39,82,.06);
+
+    transition: .35s ease;
+}
+
+.achievement:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 25px 50px
+        rgba(62,39,82,.11);
+}
+
+.achievement::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 15px;
+    top: 5px;
+
+    font-size: 5rem;
+
+    color: var(--lilac-100);
+}
+
+.achievement-icon {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--lilac-100);
+
+    border-radius: 16px;
+
+    font-size: 1.5rem;
+
+    margin-bottom: 15px;
+}
+
+.achievement h3 {
+    color: var(--plum);
+
+    margin-bottom: 13px;
+}
+
+.achievement ul {
+    padding-left: 20px;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.timeline {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 19px;
+
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            var(--lilac-300),
+            var(--pink)
+        );
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 65px;
+
+    margin-bottom: 30px;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 7px;
+    top: 5px;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    background:
+        var(--lilac-500);
+
+    border:
+        6px solid
+        var(--lilac-100);
+}
+
+.timeline-card {
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 26px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(63,39,83,.06);
+
+    border:
+        1px solid
+        #eee6f4;
+}
+
+.timeline-card small {
+    color: var(--lilac-600);
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.timeline-card h3 {
+    color: var(--plum);
+
+    margin: 5px 0;
+}
+
+.timeline-card p {
+    color: var(--gray);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   INTERESTS
+========================================================= */
+
+.interest-cloud {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.interest {
+    padding: 12px 18px;
+
+    background: white;
+
+    border:
+        1px solid
+        #e9e0ef;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+
+    color: var(--plum);
+
+    box-shadow:
+        0 10px 25px
+        rgba(62,39,82,.04);
+
+    transition: .3s ease;
+}
+
+.interest:hover {
+    transform:
+        scale(1.06)
+        rotate(-2deg);
+
+    background: var(--lilac-100);
+}
+
+
+/* =========================================================
+   DREAM
+========================================================= */
+
+.dream {
+    position: relative;
+
+    padding: 65px;
+
+    border-radius: 42px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9dcff,
+            #ffe3ed,
+            #fff2e2
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(72,43,95,.1);
+}
+
+.dream::before {
+    content: "🩺";
+
+    position: absolute;
+
+    right: -20px;
+    bottom: -70px;
+
+    font-size: 15rem;
+
+    opacity: .11;
+
+    transform: rotate(-10deg);
+}
+
+.dream h2 {
+    max-width: 700px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(2.7rem,6vw,5rem);
+
+    line-height: .98;
+
+    color: var(--plum);
+
+    margin-bottom: 22px;
+}
+
+.dream p {
+    max-width: 700px;
+
+    color: #665c6c;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 22px;
+}
+
+.contact-card {
+    background: white;
+
+    border:
+        1px solid
+        #eee6f4;
+
+    border-radius: 30px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(62,39,82,.06);
+}
+
+.contact-card h3 {
+    color: var(--plum);
+
+    margin-bottom: 20px;
+}
+
+.contact-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px 0;
+
+    border-bottom:
+        1px solid
+        #eee8f1;
+}
+
+.contact-row:last-child {
+    border-bottom: none;
+}
+
+.contact-icon {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        var(--lilac-100);
+}
+
+.contact-row small {
+    color: var(--gray);
+
+    display: block;
+}
+
+.contact-row a {
+    color: var(--lilac-700);
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        50px 5%;
+
+    text-align: center;
+
+    color: var(--gray);
+
+    font-size: .9rem;
+}
+
+footer strong {
+    color: var(--plum);
+}
+
+.heart {
+    color: #b35d91;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+#backTop {
+    position: fixed;
+
+    right: 24px;
+    bottom: 24px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--plum);
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 30px
+        rgba(66,38,79,.25);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(15px);
+
+    transition: .3s ease;
+
+    z-index: 999;
+}
+
+#backTop.show {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 20px;
     }
 
-    .profile-placeholder:hover {
-      transform: scale(1.02) rotate(2deg);
-      box-shadow: 0 20px 30px rgba(160, 130, 190, 0.25);
+    .hero-content {
+        order: 2;
     }
 
-    .profile-placeholder i {
-      font-size: 5rem;
-      color: #a084ca;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.05));
-      transition: transform 0.3s;
+    .hero-photo {
+        order: 1;
+
+        height: 480px;
     }
 
-    .profile-placeholder:hover i {
-      transform: scale(1.05);
-      color: #bda0e6;
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .intro-text {
-      flex: 1;
-      text-align: center;
+    .hero-buttons {
+        justify-content: center;
     }
 
-    @media (min-width: 640px) {
-      .hero-section {
-        flex-wrap: nowrap;
-        text-align: left;
-        justify-content: flex-start;
-      }
-      .intro-text {
-        text-align: left;
-      }
+    .about-grid {
+        grid-template-columns: 1fr;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      background: linear-gradient(120deg, #9b7bc2, #f0a6c0, #7fa8c9);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.6rem;
+    .skills {
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .tagline {
-      font-size: 1.15rem;
-      font-weight: 500;
-      background: linear-gradient(120deg, #fce9b4, #ffe0f5);
-      display: inline-block;
-      padding: 0.4rem 1.3rem;
-      border-radius: 60px;
-      color: #665a87;
-      backdrop-filter: blur(2px);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-      border: 1px solid #fff3e6;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:700px) {
+
+    .navbar {
+        top: 10px;
+
+        width: 94%;
+
+        border-radius: 25px;
     }
 
-    .tagline i {
-      margin-right: 6px;
-      color: #e9a6c3;
+    .menu-button {
+        display: block;
     }
 
-    /* card style – soft, modern, pastel touches */
-    .card {
-      background: rgba(255, 255, 252, 0.85);
-      backdrop-filter: blur(6px);
-      border-radius: 2rem;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2rem;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(220, 200, 250, 0.5);
+    .nav-links {
+        position: absolute;
+
+        top: 62px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 10px;
+
+        display: none;
+
+        flex-direction: column;
+
+        background:
+            rgba(255,255,255,.95);
+
+        backdrop-filter: blur(20px);
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 20px 45px
+            rgba(60,38,80,.12);
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-      background: rgba(255, 255, 252, 0.98);
-      border-color: #f3e0ff;
+    .nav-links.open {
+        display: flex;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      color: #5e5180;
-      margin-bottom: 1.3rem;
-      border-left: 6px solid;
-      border-image: linear-gradient(135deg, #ffc3e0, #c1b2ff);
-      border-image-slice: 1;
-      padding-left: 1rem;
+    .nav-links a {
+        text-align: center;
+
+        width: 100%;
     }
 
-    h2 i {
-      font-size: 1.6rem;
-      background: linear-gradient(145deg, #ebc2ff, #b5a2e3);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: #b494d4;
+
+    /* HERO */
+
+    .hero {
+        padding-top: 120px;
     }
 
-    .about-text p {
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
-      color: #47455c;
+    .hero h1 {
+        font-size: 4rem;
+
+        letter-spacing: -3px;
     }
 
-    .highlight {
-      background: linear-gradient(120deg, #fff2cf, #ffe2f0);
-      padding: 0.1rem 0.4rem;
-      border-radius: 20px;
-      font-weight: 500;
-      color: #5e4b8b;
+    .hero-photo {
+        height: 400px;
     }
 
-    /* skills grid – cute badges with pastel mix */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin: 1.2rem 0 0.5rem;
+    .photo-frame {
+        width: 270px;
+        height: 350px;
     }
 
-    .skill-badge {
-      background: #ffffffdd;
-      border-radius: 80px;
-      padding: 0.6rem 1.4rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      transition: all 0.25s ease;
-      border: 1px solid #fae6ff;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
-      backdrop-filter: blur(2px);
+    .hero-photo::before {
+        width: 290px;
+        height: 290px;
     }
 
-    .skill-badge:nth-child(1) { background: #fff4e0; border-color: #ffe1b9; }
-    .skill-badge:nth-child(2) { background: #ffeef5; border-color: #ffd9ea; }
-    .skill-badge:nth-child(3) { background: #e9f0ff; border-color: #cfe2ff; }
-    .skill-badge:nth-child(4) { background: #efe7ff; border-color: #decfff; }
-    .skill-badge:nth-child(5) { background: #fff0d6; border-color: #ffe1be; }
+    .photo-card {
+        font-size: .7rem;
 
-    .skill-badge i {
-      font-size: 1.2rem;
+        padding:
+            10px 13px;
     }
 
-    .skill-badge:hover {
-      transform: translateY(-3px) scale(1.02);
-      background: white;
-      box-shadow: 0 8px 18px -10px rgba(128, 108, 168, 0.2);
+    .photo-card-one {
+        left: 5px;
+        top: 75px;
     }
 
-    .learning-note {
-      margin-top: 1.6rem;
-      background: linear-gradient(135deg, #fff3e0, #ffecf5);
-      padding: 0.9rem 1.3rem;
-      border-radius: 2rem;
-      font-size: 0.92rem;
-      color: #6a5d8a;
-      border-left: 6px solid #f5b0d0;
+    .photo-card-two {
+        right: 0;
+        bottom: 70px;
     }
 
-    /* contact area */
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .photo-decoration {
+        font-size: 1.8rem;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background: #ffffffdd;
-      padding: 0.9rem 1.3rem;
-      border-radius: 2rem;
-      transition: all 0.25s;
-      border: 1px solid #f0e2fd;
-      cursor: pointer;
+
+    /* SECTIONS */
+
+    section {
+        width: 90%;
+
+        padding: 80px 0;
     }
 
-    .contact-item i {
-      width: 2rem;
-      font-size: 1.4rem;
-      color: #c2a5f0;
+    .section-header {
+        margin-bottom: 35px;
     }
 
-    .contact-detail {
-      font-weight: 500;
-      color: #3d3a54;
-      word-break: break-all;
+    .section-header h2 {
+        font-size: 2.8rem;
     }
 
-    .contact-item .copy-hint {
-      margin-left: auto;
-      font-size: 0.7rem;
-      background: #f7efff;
-      padding: 0.25rem 0.8rem;
-      border-radius: 40px;
-      color: #9c86c4;
-      transition: 0.2s;
+    .skills {
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .contact-item:hover {
-      background: white;
-      transform: translateX(8px);
-      border-color: #e1ceff;
-      box-shadow: 0 6px 12px -12px rgba(0,0,0,0.1);
+    .achievements {
+        grid-template-columns: 1fr;
     }
 
-    .contact-item:active {
-      transform: scale(0.98);
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
-    .footer-note {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: #b7a2da;
-      border-top: 1px solid #f3e7ff;
-      padding-top: 1.8rem;
+    .dream {
+        padding: 38px 27px;
     }
 
-    /* mobile responsiveness */
-    @media (max-width: 560px) {
-      body {
-        padding: 1rem;
-      }
-      .portfolio {
-        padding: 1.2rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .tagline {
-        font-size: 0.95rem;
-      }
-      .card {
-        padding: 1.2rem;
-      }
-      .skill-badge {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
-      }
-      .contact-item {
-        padding: 0.8rem 1rem;
-      }
+    .dream h2 {
+        font-size: 3rem;
     }
 
-    /* cute soft gradient background animation */
-    @keyframes gentleShift {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width:420px) {
+
+    .hero h1 {
+        font-size: 3.35rem;
     }
 
-    body {
-      background-size: 200% 200%;
-      animation: gentleShift 20s ease infinite;
+    .hero-buttons .button {
+        width: 100%;
     }
 
-    /* custom toast for copy feedback */
-    .custom-toast {
-      animation: fadeSlide 0.2s ease-out;
+    .skills {
+        grid-template-columns:
+            1fr 1fr;
     }
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateX(-50%) translateY(12px); }
-      100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .skill {
+        padding:
+            20px 8px;
     }
-  </style>
+
+}
+
+</style>
 </head>
+
+
 <body>
 
-<div class="portfolio">
-  <!-- Hero Section: profile placeholder + intro -->
-  <div class="hero-section">
-    <div class="profile-placeholder">
-      <i class="fas fa-face-smile-wink"></i>
-    </div>
-    <div class="intro-text">
-      <h1>Monica Unida</h1>
-      <div class="tagline">
-        <i class="fas fa-cloud-moon"></i> softly learning · gently growing
-      </div>
-      <div style="margin-top: 0.75rem; font-size: 0.9rem; color: #9e8bbc;">
-        <i class="fas fa-star"></i> shy soul, big dreams in tech
-      </div>
-    </div>
-  </div>
 
-  <!-- About section: school & trainee details -->
-  <div class="about-section card">
-    <h2><i class="fas fa-feather-alt"></i> about myself</h2>
-    <div class="about-text">
-      <p>Hello! I'm <strong>Monica Unida</strong> — a student at <span class="highlight">Licerio Antiporda Sr. National High School - Main</span> and a trainee at <span class="highlight">Lyceum of Aparri</span> as part of the <strong>ATP Auxiliary Technology Program</strong>. 
-      I may be shy, but my curiosity for technology speaks loudly. I love discovering how things work and turning ideas into digital realities.</p>
-      <p>Every day, I'm excited to explore more about the tech world — from creating documents to writing small pieces of code. I believe that learning is a beautiful journey, and I'm just getting started. 🌷</p>
-    </div>
-  </div>
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-  <!-- Training & Skills section: microsoft tools + html/css -->
-  <div class="skills-section card">
-    <h2><i class="fas fa-palette"></i> what I've learned</h2>
-    <p style="margin-bottom: 0.75rem; color: #685f86;">During my ATP training, I gained practical knowledge in:</p>
-    <div class="skills-grid">
-      <div class="skill-badge"><i class="fab fa-microsoft"></i> Microsoft Word</div>
-      <div class="skill-badge"><i class="fas fa-chalkboard"></i> PowerPoint</div>
-      <div class="skill-badge"><i class="fas fa-chart-line"></i> Microsoft Excel</div>
-      <div class="skill-badge"><i class="fab fa-html5"></i> HTML & CSS</div>
-      <div class="skill-badge"><i class="fas fa-code"></i> Simple Coding</div>
-    </div>
-    <div class="learning-note">
-      <i class="fas fa-sparkle" style="margin-right: 0.5rem; color: #e9a6c3;"></i> 
-      Currently exploring responsive layouts and little touches of JavaScript — each step feels like a small victory!
-    </div>
-  </div>
+<div class="background">
 
-  <!-- Contact section: email & phone with copy interaction -->
-  <div class="contact-section card">
-    <h2><i class="fas fa-envelope-open-text"></i> let's connect</h2>
-    <div class="contact-info">
-      <!-- Email item (copy feature) -->
-      <div class="contact-item" data-copy-text="unidamonica@gmail.com" id="emailContact">
-        <i class="fas fa-envelope"></i>
-        <span class="contact-detail">unidamonica@gmail.com</span>
-        <span class="copy-hint"><i class="far fa-copy"></i> copy</span>
-      </div>
-      <!-- Phone item (copy feature) -->
-      <div class="contact-item" data-copy-text="09061339038" id="phoneContact">
-        <i class="fas fa-phone-alt"></i>
-        <span class="contact-detail">0906 133 9038</span>
-        <span class="copy-hint"><i class="far fa-copy"></i> copy</span>
-      </div>
-    </div>
-    <div style="margin-top: 1.2rem; background: #fff6ea; border-radius: 2rem; padding: 0.5rem 1.2rem; display: inline-block; width: auto; font-size: 0.85rem;">
-      <i class="fas fa-clock"></i> feel free to reach out — I'd love to connect!
-    </div>
-  </div>
+    <div class="blob blob-1"></div>
 
-  <!-- tiny footer signature -->
-  <div class="footer-note">
-    <i class="fas fa-crown"></i> designed with pastel hues & gentle code · Monica Unida
-  </div>
+    <div class="blob blob-2"></div>
+
+    <div class="blob blob-3"></div>
+
 </div>
 
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar" id="navbar">
+
+    <a href="#home" class="brand">
+
+        <span class="brand-mark">
+            SF
+        </span>
+
+        <span>
+            Sheena
+        </span>
+
+    </a>
+
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open navigation"
+    >
+        ☰
+    </button>
+
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home" class="active">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="#skills">
+                Skills
+            </a>
+        </li>
+
+        <li>
+            <a href="#achievements">
+                Achievements
+            </a>
+        </li>
+
+        <li>
+            <a href="#journey">
+                Journey
+            </a>
+        </li>
+
+        <li>
+            <a href="#interests">
+                Interests
+            </a>
+        </li>
+
+        <li>
+            <a href="#dream">
+                Dream
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero" id="home">
+
+
+    <!-- LEFT: NAME -->
+
+    <div class="hero-content reveal">
+
+        <div class="eyebrow">
+
+            <span class="status-dot"></span>
+
+            Grade 7 Student • Dreamer • Learner
+
+        </div>
+
+
+        <h1>
+
+            <span class="hello">
+                Hello, I'm
+            </span>
+
+            <span class="first-name">
+                Sheena.
+            </span>
+
+            <span class="last-name">
+                F. Ugalino
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Hi! I'm Sheena, but you can call me
+            Shane or Ash. I'm a Grade 7 student
+            who loves learning, music, singing,
+            dancing, fashion, writing, editing,
+            and discovering new things.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#about"
+                class="button button-primary"
+            >
+                Discover My Story
+                <span>↓</span>
+            </a>
+
+
+            <a
+                href="#contact"
+                class="button button-outline"
+            >
+                Let's Connect
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT: PHOTO -->
+
+    <div class="hero-photo reveal">
+
+
+        <div class="photo-decoration decoration-one">
+            ✦
+        </div>
+
+
+        <div class="photo-decoration decoration-two">
+            ✧
+        </div>
+
+
+        <div class="photo-frame">
+
+            <!--
+                PUT YOUR IMAGE IN THE SAME FOLDER
+                AS THIS HTML FILE.
+
+                Rename your photo to:
+
+                sheena.jpg
+            -->
+
+            <img
+                src="sheena.png"
+                alt="Photo of Sheena F. Ugalino"
+            >
+
+        </div>
+
+
+        <div class="photo-card photo-card-one">
+            🎤 Creative
+        </div>
+
+
+        <div class="photo-card photo-card-two">
+            🩺 Future Doctor
+        </div>
+
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            01 — About Me
+        </div>
+
+        <h2>
+            More than just<br>
+            a student.
+        </h2>
+
+        <p>
+            I'm a learner, creative thinker,
+            dreamer, and someone who enjoys
+            discovering what I'm capable of.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="glass-card profile-card reveal">
+
+
+            <div class="profile-icon">
+                SF
+            </div>
+
+
+            <h3>
+                Sheena F. Ugalino
+            </h3>
+
+
+            <div class="nickname">
+                Shane • Ash
+            </div>
+
+
+            <div class="details">
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        🎓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Grade 7
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            Mapurao Integrated Learning School
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        🎂
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            13 years old
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            Student
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Philippines
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            Home
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        ✨
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Smart • Dreamer • Ambivert
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            A few words about me
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="glass-card about-copy reveal">
+
+
+            <p>
+
+                Hi! I'm
+                <strong>Sheena F. Ugalino</strong>,
+                but you can call me
+                <strong>Shane</strong>
+                or
+                <strong>Ash</strong>.
+
+                I'm a 13-year-old Grade 7 student
+                at
+                <strong>
+                    Mapurao Integrated Learning School
+                </strong>
+                in the Philippines.
+
+            </p>
+
+
+            <p>
+
+                I love learning new things and
+                exploring my creativity. Some of
+                my favorite things include listening
+                to music, singing, dancing, fashion,
+                writing, editing, cooking, and DIY
+                projects.
+
+            </p>
+
+
+            <p>
+
+                School has also given me opportunities
+                to discover my strengths. I've
+                participated in journalism,
+                mathematics competitions,
+                storytelling, pageants, and
+                different student organizations.
+
+            </p>
+
+
+            <p>
+
+                I believe being a student isn't only
+                about grades. It's about experiences,
+                challenges, friendships, creativity,
+                and constantly becoming a better
+                version of yourself.
+
+            </p>
+
+
+            <div class="quote">
+
+                “Every experience is a chance to
+                learn, grow, and dream bigger.”
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            02 — Skills
+        </div>
+
+        <h2>
+            Things I love<br>
+            creating.
+        </h2>
+
+        <p>
+            Creativity is one of the ways I
+            express myself and explore new ideas.
+        </p>
+
+    </div>
+
+
+    <div class="skills">
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                🎤
+            </div>
+
+            <h3>
+                Singing
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                🍳
+            </div>
+
+            <h3>
+                Cooking
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                ✂️
+            </div>
+
+            <h3>
+                DIY Projects
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                🎬
+            </div>
+
+            <h3>
+                Editing
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                ✍️
+            </div>
+
+            <h3>
+                Writing
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                💃
+            </div>
+
+            <h3>
+                Dancing
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                👗
+            </div>
+
+            <h3>
+                Fashion
+            </h3>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                🧠
+            </div>
+
+            <h3>
+                Learning
+            </h3>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
+
+<section id="achievements">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            03 — Achievements
+        </div>
+
+        <h2>
+            Little wins.<br>
+            Big dreams.
+        </h2>
+
+        <p>
+            Every competition and achievement has
+            helped me become more confident and
+            determined.
+        </p>
+
+    </div>
+
+
+    <div class="achievements">
+
+
+        <article class="achievement reveal">
+
+            <div class="achievement-icon">
+                📰
+            </div>
+
+            <h3>
+                Journalism
+            </h3>
+
+            <ul>
+
+                <li>
+                    Radio Broadcasting —
+                    3× Municipal Qualifier
+                </li>
+
+                <li>
+                    3× CSPC Qualifier
+                </li>
+
+                <li>
+                    2× Division Qualifier
+                </li>
+
+                <li>
+                    1× Pre-RSPC Qualifier
+                </li>
+
+                <li>
+                    English Column Writing
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <article class="achievement reveal">
+
+            <div class="achievement-icon">
+                🔢
+            </div>
+
+            <h3>
+                Mathematics
+            </h3>
+
+            <ul>
+
+                <li>
+                    Math Bowl —
+                    3× Municipal Qualifier
+                </li>
+
+                <li>
+                    Math Bowl —
+                    1× Division Qualifier
+                </li>
+
+                <li>
+                    Math Race —
+                    2nd Place
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <article class="achievement reveal">
+
+            <div class="achievement-icon">
+                📖
+            </div>
+
+            <h3>
+                Storytelling
+            </h3>
+
+            <ul>
+
+                <li>
+                    Storytelling —
+                    2× participant
+                </li>
+
+                <li>
+                    Developed public speaking skills
+                </li>
+
+                <li>
+                    Improved confidence and
+                    communication
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <article class="achievement reveal">
+
+            <div class="achievement-icon">
+                🏆
+            </div>
+
+            <h3>
+                Academic & Other
+            </h3>
+
+            <ul>
+
+                <li>
+                    Academic Achiever
+                </li>
+
+                <li>
+                    Valedictorian
+                </li>
+
+                <li>
+                    Pageant — 2× participant
+                </li>
+
+                <li>
+                    Many school activities
+                </li>
+
+            </ul>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section id="journey">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            04 — My Journey
+        </div>
+
+        <h2>
+            Growing through<br>
+            experiences.
+        </h2>
+
+        <p>
+            Every activity gives me another
+            opportunity to learn something new.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <small>
+                    EDUCATION
+                </small>
+
+                <h3>
+                    Mapurao Integrated Learning School
+                </h3>
+
+                <p>
+                    Currently a Grade 7 student,
+                    continuing to learn, explore
+                    interests, and build skills
+                    for the future.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <small>
+                    JOURNALISM
+                </small>
+
+                <h3>
+                    Finding My Voice
+                </h3>
+
+                <p>
+                    Through radio broadcasting and
+                    column writing, I discovered how
+                    much I enjoy communicating ideas
+                    and telling stories.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <small>
+                    GIRL SCOUTS
+                </small>
+
+                <h3>
+                    Provincial Jamboree
+                </h3>
+
+                <p>
+                    Participated in the Provincial
+                    Jamboree through the Girl Scouts
+                    of the Philippines.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <small>
+                    ORGANIZATIONS
+                </small>
+
+                <h3>
+                    YES-O & SELG
+                </h3>
+
+                <p>
+                    Participated in school organizations
+                    and activities that helped me develop
+                    teamwork, responsibility, and
+                    leadership.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTERESTS
+===================================================== -->
+
+<section id="interests">
+
+
+    <div
+        class="section-header reveal"
+        style="text-align:center;"
+    >
+
+        <div class="section-number">
+            05 — Interests
+        </div>
+
+        <h2>
+            Things that<br>
+            make me, me.
+        </h2>
+
+        <p style="margin-left:auto;margin-right:auto;">
+
+            A collection of the things I enjoy,
+            love, and find interesting.
+
+        </p>
+
+    </div>
+
+
+    <div class="interest-cloud reveal">
+
+        <span class="interest">
+            🎧 Music
+        </span>
+
+        <span class="interest">
+            🎤 Singing
+        </span>
+
+        <span class="interest">
+            💃 Dancing
+        </span>
+
+        <span class="interest">
+            👗 Fashion
+        </span>
+
+        <span class="interest">
+            🎬 Editing
+        </span>
+
+        <span class="interest">
+            ✍️ Writing
+        </span>
+
+        <span class="interest">
+            🍳 Cooking
+        </span>
+
+        <span class="interest">
+            ✂️ DIY
+        </span>
+
+        <span class="interest">
+            🎵 K-pop
+        </span>
+
+        <span class="interest">
+            🎞️ K-dramas
+        </span>
+
+        <span class="interest">
+            🌏 Chinese Culture
+        </span>
+
+        <span class="interest">
+            📚 Learning
+        </span>
+
+        <span class="interest">
+            🌈 LGBTQIA+ Support
+        </span>
+
+        <span class="interest">
+            😴 Sleeping
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DREAM
+===================================================== -->
+
+<section id="dream">
+
+
+    <div class="dream reveal">
+
+        <div class="section-number">
+            06 — My Dream
+        </div>
+
+
+        <h2>
+            Future Doctor.<br>
+            Future Helper.
+        </h2>
+
+
+        <p>
+
+            My dream is to become a doctor because
+            I want to help people, cure illnesses,
+            and make a positive difference in
+            people's lives.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            I also love animals, so I would be
+            happy to help care for them too.
+            I know becoming a doctor will require
+            dedication, patience, knowledge, and
+            many years of studying.
+
+            But I'm willing to work hard, keep
+            learning, and keep moving toward
+            my dream.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            07 — Contact
+        </div>
+
+        <h2>
+            Let's connect.
+        </h2>
+
+        <p>
+            Want to reach out? Here are my
+            contact details.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-card reveal">
+
+            <h3>
+                📬 Contact Information
+            </h3>
+
+
+            <div class="contact-row">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <div>
+
+                    <small>
+                        Email
+                    </small>
+
+                    <a href="mailto:sheynezefugalino111@gmail.com">
+                        sheynezefugalino111@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-row">
+
+                <div class="contact-icon">
+                    📱
+                </div>
+
+                <div>
+
+                    <small>
+                        Phone
+                    </small>
+
+                    <a href="tel:09755334521">
+                        09755334521
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-row">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <small>
+                        Location
+                    </small>
+
+                    <strong>
+                        Philippines
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="contact-card reveal">
+
+            <h3>
+                🌷 A Little Note
+            </h3>
+
+
+            <p
+                style="
+                    color:var(--gray);
+                    line-height:1.8;
+                "
+            >
+
+                I'm still at the beginning of my
+                journey, but I believe every dream
+                starts with a single step.
+
+            </p>
+
+
+            <p
+                style="
+                    color:var(--gray);
+                    line-height:1.8;
+                    margin-top:15px;
+                "
+            >
+
+                I'm excited to continue learning,
+                exploring my talents, meeting new
+                people, and working toward becoming
+                the person I dream of being.
+
+            </p>
+
+
+            <div class="quote">
+
+                Dream big. Learn more. Keep going. ✨
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+
+        Made with
+        <span class="heart">♥</span>
+        by
+
+        <strong>
+            Sheena F. Ugalino
+        </strong>
+
+    </p>
+
+
+    <p style="margin-top:8px;">
+
+        ©
+        <span id="year"></span>
+
+        Sheena's Portfolio
+
+    </p>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button
+    id="backTop"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-  (function() {
-    // Helper: create a cute toast notification
-    function showNotification(message, isError = false) {
-      const existingToast = document.querySelector('.custom-toast');
-      if (existingToast) existingToast.remove();
 
-      const toast = document.createElement('div');
-      toast.className = 'custom-toast';
-      toast.innerText = message;
-      toast.style.position = 'fixed';
-      toast.style.bottom = '24px';
-      toast.style.left = '50%';
-      toast.style.transform = 'translateX(-50%)';
-      toast.style.backgroundColor = isError ? '#ffe0dc' : '#f1e7ff';
-      toast.style.color = '#4d3f6e';
-      toast.style.padding = '0.7rem 1.6rem';
-      toast.style.borderRadius = '50px';
-      toast.style.fontSize = '0.85rem';
-      toast.style.fontWeight = '500';
-      toast.style.backdropFilter = 'blur(12px)';
-      toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.08)';
-      toast.style.border = '1px solid #f5e9ff';
-      toast.style.zIndex = '1000';
-      toast.style.fontFamily = "'Inter', sans-serif";
-      toast.style.pointerEvents = 'none';
-      document.body.appendChild(toast);
 
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.2s';
-        setTimeout(() => {
-          if (toast.parentNode) toast.remove();
-        }, 200);
-      }, 2000);
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuButton.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+
+    if (navLinks.classList.contains("open")) {
+
+        menuButton.textContent = "✕";
+
+    } else {
+
+        menuButton.textContent = "☰";
+
     }
 
-    // attach copy functionality to all contact items with data-copy-text
-    const copyItems = document.querySelectorAll('.contact-item');
-    copyItems.forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const textToCopy = item.getAttribute('data-copy-text');
-        if (textToCopy) {
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            showNotification(`✨ Copied: ${textToCopy}`, false);
-            // micro pop effect
-            item.style.transform = 'scale(0.98)';
-            setTimeout(() => { item.style.transform = ''; }, 150);
-          }).catch(() => {
-            showNotification(`⚠️ Could not copy, please select manually`, true);
-          });
-        }
-      });
+});
+
+
+/* Close mobile menu when link is clicked */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("open");
+
+            menuButton.textContent = "☰";
+
+        });
+
     });
 
-    // format phone number display nicely, but keep raw copy as digits
-    const phoneDiv = document.getElementById('phoneContact');
-    if (phoneDiv) {
-      const phoneSpan = phoneDiv.querySelector('.contact-detail');
-      if (phoneSpan && phoneSpan.innerText.includes('0906')) {
-        phoneSpan.innerText = '0906 133 9038';
-      }
-      // ensure data-copy-text remains raw digits
-      phoneDiv.setAttribute('data-copy-text', '09061339038');
-    }
-    
-    // email raw set correctly
-    const emailDiv = document.getElementById('emailContact');
-    if (emailDiv && !emailDiv.getAttribute('data-copy-text')) {
-      emailDiv.setAttribute('data-copy-text', 'unidamonica@gmail.com');
+
+/* =========================================================
+   NAVBAR SCROLL
+========================================================= */
+
+const navbar =
+    document.getElementById("navbar");
+
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
     }
 
-    // additional cute detail: add subtle hover effect on cards (already css)
-    console.log("💜 Monica's pastel portfolio — shy & bright ✨");
-  })();
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: .12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        "header[id], section[id]"
+    );
+
+const navigationLinks =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 180;
+
+        if (window.scrollY >= sectionTop) {
+
+            current =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navigationLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href")
+            === "#" + current
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const backTop =
+    document.getElementById("backTop");
+
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+
+        backTop.classList.add("show");
+
+    } else {
+
+        backTop.classList.remove("show");
+
+    }
+
+});
+
+
+backTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   PHOTO PARALLAX
+========================================================= */
+
+const photoFrame =
+    document.querySelector(".photo-frame");
+
+
+document.addEventListener("mousemove", event => {
+
+    if (window.innerWidth < 900) {
+        return;
+    }
+
+
+    const x =
+        (event.clientX /
+            window.innerWidth -
+            .5) * 7;
+
+
+    const y =
+        (event.clientY /
+            window.innerHeight -
+            .5) * 7;
+
+
+    photoFrame.style.transform =
+        `rotate(4deg)
+         translate(${x}px,${y}px)`;
+
+});
+
+
+/* =========================================================
+   INTEREST HOVER
+========================================================= */
+
+document
+    .querySelectorAll(".interest")
+    .forEach(item => {
+
+        item.addEventListener(
+            "mouseenter",
+            () => {
+
+                const rotations = [
+                    "-2deg",
+                    "2deg",
+                    "-1deg",
+                    "1deg"
+                ];
+
+                const random =
+                    rotations[
+                        Math.floor(
+                            Math.random() *
+                            rotations.length
+                        )
+                    ];
+
+                item.style.transform =
+                    `scale(1.06)
+                     rotate(${random})`;
+
+            }
+        );
+
+
+        item.addEventListener(
+            "mouseleave",
+            () => {
+
+                item.style.transform = "";
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   BUTTON RIPPLE
+========================================================= */
+
+document
+    .querySelectorAll(".button")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function(event) {
+
+                const ripple =
+                    document.createElement("span");
+
+
+                ripple.style.position =
+                    "absolute";
+
+                ripple.style.width =
+                    "20px";
+
+                ripple.style.height =
+                    "20px";
+
+                ripple.style.borderRadius =
+                    "50%";
+
+                ripple.style.background =
+                    "rgba(255,255,255,.4)";
+
+                ripple.style.pointerEvents =
+                    "none";
+
+
+                const rect =
+                    this.getBoundingClientRect();
+
+
+                ripple.style.left =
+                    `${event.clientX - rect.left - 10}px`;
+
+                ripple.style.top =
+                    `${event.clientY - rect.top - 10}px`;
+
+
+                this.appendChild(ripple);
+
+
+                ripple.animate(
+
+                    [
+                        {
+                            transform: "scale(0)",
+                            opacity: 1
+                        },
+
+                        {
+                            transform: "scale(12)",
+                            opacity: 0
+                        }
+                    ],
+
+                    {
+                        duration: 600,
+                        easing: "ease-out"
+                    }
+
+                );
+
+
+                setTimeout(
+                    () => ripple.remove(),
+                    600
+                );
+
+            }
+        );
+
+    });
+
 </script>
-</body>
-</html>
-
-make this as my portfolio my name is SHEENA UGALINO and and im a grade 7 student.
-remove the picture. make this as base with my porfolio
-
-ChatGPT said:
-Absolutely — I’ll keep the same pastel, soft aesthetic as your base, remove the profile picture entirely, and rewrite the content for Sheena Ugalino, Grade 7. I’ll also remove Monica’s school/contact details so you can replace them with your own.
-
-
-Log in for more personalized help with writing, rewriting, and translation.
-
-
-Log in
-
-Sign up for free
-You said:
-
-drop the whole code so that ill copy and paste
-
-ChatGPT said:
-Here’s the complete copy-and-paste version. I kept the pastel style, removed the picture/profile section, and made it a Grade 7 student portfolio for Sheena Ugalino. I also left contact details as placeholders so you can safely add your own.
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-  <title>Sheena Ugalino | My Portfolio</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <style>
-    /* ================================
-       RESET
-    ================================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* ================================
-       COLOR VARIABLES
-    ================================= */
-    :root {
-      --pastel-yellow: #fff0cf;
-      --pastel-pink: #ffe2f0;
-      --pastel-purple: #e9dcff;
-      --pastel-blue: #d4eaff;
-
-      --soft-lavender: #cbb9ff;
-      --accent-purple: #b49bdf;
-      --accent-pink: #f5b0d0;
-
-      --card-bg: rgba(255, 253, 250, 0.94);
-
-      --text-dark: #403d52;
-      --text-light: #716987;
-
-      --shadow-sm:
-        0 12px 28px rgba(0, 0, 0, 0.04),
-        0 0 0 1px rgba(0, 0, 0, 0.02);
-
-      --shadow-hover:
-        0 24px 36px -12px rgba(0, 0, 0, 0.12);
-    }
-
-    /* ================================
-       BODY
-    ================================= */
-    body {
-      font-family: 'Inter', sans-serif;
-
-      background:
-        linear-gradient(
-          145deg,
-          #fff9e8 0%,
-          #ffeef8 45%,
-          #eee8ff 100%
-        );
-
-      background-size: 200% 200%;
-      animation: gentleShift 20s ease infinite;
-
-      color: var(--text-dark);
-      line-height: 1.6;
-
-      padding: 2rem 1.5rem;
-
-      min-height: 100vh;
-    }
-
-    /* ================================
-       MAIN PORTFOLIO
-    ================================= */
-    .portfolio {
-      max-width: 1100px;
-      margin: 0 auto;
-
-      background: var(--card-bg);
-
-      backdrop-filter: blur(8px);
-
-      border-radius: 2.5rem;
-
-      padding: 2rem;
-
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* ================================
-       HERO SECTION
-    ================================= */
-    .hero-section {
-      text-align: center;
-
-      padding: 2rem 1rem 3rem;
-
-      margin-bottom: 1rem;
-    }
-
-    .hero-icon {
-      width: 85px;
-      height: 85px;
-
-      margin: 0 auto 1.2rem;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffe0b5,
-          #ffcfdf,
-          #d9c7ff
-        );
-
-      color: #967bbd;
-
-      font-size: 2.4rem;
-
-      box-shadow:
-        0 12px 25px rgba(180, 140, 200, 0.2);
-
-      border: 4px solid white;
-
-      transition: 0.3s ease;
-    }
-
-    .hero-icon:hover {
-      transform: scale(1.05) rotate(3deg);
-    }
-
-    h1 {
-      font-size: 3.2rem;
-
-      font-weight: 700;
-
-      background:
-        linear-gradient(
-          120deg,
-          #9b7bc2,
-          #f0a6c0,
-          #7fa8c9
-        );
-
-      background-clip: text;
-      -webkit-background-clip: text;
-
-      color: transparent;
-
-      letter-spacing: -0.02em;
-
-      margin-bottom: 0.6rem;
-    }
-
-    .tagline {
-      display: inline-block;
-
-      font-size: 1.1rem;
-
-      font-weight: 500;
-
-      background:
-        linear-gradient(
-          120deg,
-          #fce9b4,
-          #ffe0f5
-        );
-
-      padding: 0.5rem 1.4rem;
-
-      border-radius: 60px;
-
-      color: #665a87;
-
-      border: 1px solid #fff3e6;
-
-      box-shadow:
-        0 2px 6px rgba(0,0,0,0.03);
-    }
-
-    .tagline i {
-      color: #e9a6c3;
-      margin-right: 6px;
-    }
-
-    .student-info {
-      margin-top: 1rem;
-
-      color: #9e8bbc;
-
-      font-size: 0.95rem;
-    }
-
-    /* ================================
-       CARDS
-    ================================= */
-    .card {
-      background: rgba(255, 255, 252, 0.88);
-
-      backdrop-filter: blur(6px);
-
-      border-radius: 2rem;
-
-      padding: 1.8rem 2rem;
-
-      margin-bottom: 2rem;
-
-      border: 1px solid rgba(220, 200, 250, 0.5);
-
-      box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.02);
-
-      transition:
-        all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-
-      box-shadow: var(--shadow-hover);
-
-      background: rgba(255, 255, 252, 0.98);
-
-      border-color: #f3e0ff;
-    }
-
-    /* ================================
-       HEADINGS
-    ================================= */
-    h2 {
-      font-size: 1.8rem;
-
-      font-weight: 600;
-
-      display: flex;
-      align-items: center;
-
-      gap: 0.7rem;
-
-      color: #5e5180;
-
-      margin-bottom: 1.3rem;
-
-      border-left: 6px solid;
-
-      border-image:
-        linear-gradient(
-          135deg,
-          #ffc3e0,
-          #c1b2ff
-        );
-
-      border-image-slice: 1;
-
-      padding-left: 1rem;
-    }
-
-    h2 i {
-      font-size: 1.5rem;
-
-      color: #b494d4;
-    }
-
-    /* ================================
-       ABOUT
-    ================================= */
-    .about-text p {
-      font-size: 1.05rem;
-
-      margin-bottom: 1rem;
-
-      color: #47455c;
-    }
-
-    .highlight {
-      background:
-        linear-gradient(
-          120deg,
-          #fff2cf,
-          #ffe2f0
-        );
-
-      padding: 0.1rem 0.4rem;
-
-      border-radius: 20px;
-
-      font-weight: 500;
-
-      color: #5e4b8b;
-    }
-
-    /* ================================
-       INTERESTS
-    ================================= */
-    .interest-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-      gap: 1rem;
-
-      margin-top: 1rem;
-    }
-
-    .interest-card {
-      padding: 1.3rem;
-
-      border-radius: 1.5rem;
-
-      text-align: center;
-
-      transition: 0.25s ease;
-
-      border: 1px solid transparent;
-    }
-
-    .interest-card:nth-child(1) {
-      background: #fff4e0;
-      border-color: #ffe1b9;
-    }
-
-    .interest-card:nth-child(2) {
-      background: #ffeef5;
-      border-color: #ffd9ea;
-    }
-
-    .interest-card:nth-child(3) {
-      background: #e9f0ff;
-      border-color: #cfe2ff;
-    }
-
-    .interest-card:nth-child(4) {
-      background: #efe7ff;
-      border-color: #decfff;
-    }
-
-    .interest-card:hover {
-      transform: translateY(-4px) scale(1.02);
-
-      box-shadow:
-        0 10px 20px rgba(100,80,140,0.08);
-    }
-
-    .interest-card i {
-      font-size: 1.8rem;
-
-      color: #a98bcf;
-
-      margin-bottom: 0.6rem;
-    }
-
-    .interest-card h3 {
-      font-size: 1rem;
-
-      color: #51476d;
-
-      margin-bottom: 0.3rem;
-    }
-
-    .interest-card p {
-      font-size: 0.85rem;
-
-      color: #766d89;
-    }
-
-    /* ================================
-       SKILLS
-    ================================= */
-    .skills-grid {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 0.9rem;
-
-      margin-top: 1.2rem;
-    }
-
-    .skill-badge {
-      background: white;
-
-      border-radius: 80px;
-
-      padding: 0.65rem 1.4rem;
-
-      font-weight: 500;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 0.6rem;
-
-      font-size: 0.95rem;
-
-      border: 1px solid #fae6ff;
-
-      box-shadow:
-        0 1px 4px rgba(0,0,0,0.02);
-
-      transition: 0.25s ease;
-    }
-
-    .skill-badge:nth-child(1) {
-      background: #fff4e0;
-      border-color: #ffe1b9;
-    }
-
-    .skill-badge:nth-child(2) {
-      background: #ffeef5;
-      border-color: #ffd9ea;
-    }
-
-    .skill-badge:nth-child(3) {
-      background: #e9f0ff;
-      border-color: #cfe2ff;
-    }
-
-    .skill-badge:nth-child(4) {
-      background: #efe7ff;
-      border-color: #decfff;
-    }
-
-    .skill-badge:nth-child(5) {
-      background: #fff0d6;
-      border-color: #ffe1be;
-    }
-
-    .skill-badge i {
-      font-size: 1.2rem;
-      color: #a98bcf;
-    }
-
-    .skill-badge:hover {
-      transform: translateY(-3px) scale(1.02);
-
-      background: white;
-
-      box-shadow:
-        0 8px 18px -10px rgba(128, 108, 168, 0.2);
-    }
-
-    /* ================================
-       LEARNING NOTE
-    ================================= */
-    .learning-note {
-      margin-top: 1.6rem;
-
-      background:
-        linear-gradient(
-          135deg,
-          #fff3e0,
-          #ffecf5
-        );
-
-      padding: 1rem 1.3rem;
-
-      border-radius: 2rem;
-
-      font-size: 0.92rem;
-
-      color: #6a5d8a;
-
-      border-left: 6px solid #f5b0d0;
-    }
-
-    /* ================================
-       GOALS
-    ================================= */
-    .goals-list {
-      list-style: none;
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 0.8rem;
-    }
-
-    .goals-list li {
-      background: #fff;
-
-      padding: 0.9rem 1.2rem;
-
-      border-radius: 1.5rem;
-
-      border: 1px solid #eee2fa;
-
-      color: #514b64;
-
-      transition: 0.25s ease;
-    }
-
-    .goals-list li:hover {
-      transform: translateX(6px);
-
-      background: #fffaff;
-    }
-
-    .goals-list i {
-      color: #d29bc0;
-
-      margin-right: 0.6rem;
-    }
-
-    /* ================================
-       CONTACT
-    ================================= */
-    .contact-info {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 1rem;
-    }
-
-    .contact-item {
-      display: flex;
-
-      align-items: center;
-
-      gap: 1rem;
-
-      background: #ffffffdd;
-
-      padding: 0.9rem 1.3rem;
-
-      border-radius: 2rem;
-
-      border: 1px solid #f0e2fd;
-
-      transition: 0.25s ease;
-    }
-
-    .contact-item i {
-      width: 2rem;
-
-      font-size: 1.3rem;
-
-      color: #c2a5f0;
-    }
-
-    .contact-detail {
-      font-weight: 500;
-
-      color: #3d3a54;
-
-      word-break: break-word;
-    }
-
-    .contact-item:hover {
-      background: white;
-
-      transform: translateX(6px);
-
-      border-color: #e1ceff;
-
-      box-shadow:
-        0 6px 12px -12px rgba(0,0,0,0.1);
-    }
-
-    /* ================================
-       FOOTER
-    ================================= */
-    .footer-note {
-      text-align: center;
-
-      margin-top: 2rem;
-
-      font-size: 0.85rem;
-
-      color: #b7a2da;
-
-      border-top: 1px solid #f3e7ff;
-
-      padding-top: 1.8rem;
-    }
-
-    /* ================================
-       ANIMATION
-    ================================= */
-    @keyframes gentleShift {
-      0% {
-        background-position: 0% 0%;
-      }
-
-      50% {
-        background-position: 100% 100%;
-      }
-
-      100% {
-        background-position: 0% 0%;
-      }
-    }
-
-    @keyframes floatRise {
-      0% {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .portfolio > * {
-      animation:
-        floatRise 0.7s
-        cubic-bezier(0.2, 0.9, 0.4, 1.1)
-        forwards;
-
-      opacity: 0;
-    }
-
-    .hero-section {
-      animation-delay: 0.05s;
-    }
-
-    .about-section {
-      animation-delay: 0.12s;
-    }
-
-    .interests-section {
-      animation-delay: 0.19s;
-    }
-
-    .skills-section {
-      animation-delay: 0.26s;
-    }
-
-    .goals-section {
-      animation-delay: 0.33s;
-    }
-
-    .contact-section {
-      animation-delay: 0.40s;
-    }
-
-    .footer-note {
-      animation-delay: 0.47s;
-    }
-
-    /* ================================
-       MOBILE
-    ================================= */
-    @media (max-width: 600px) {
-
-      body {
-        padding: 1rem;
-      }
-
-      .portfolio {
-        padding: 1.2rem;
-
-        border-radius: 1.8rem;
-      }
-
-      .hero-section {
-        padding: 1.5rem 0.5rem 2rem;
-      }
-
-      h1 {
-        font-size: 2.3rem;
-      }
-
-      .tagline {
-        font-size: 0.9rem;
-
-        padding: 0.45rem 1rem;
-      }
-
-      .card {
-        padding: 1.2rem;
-
-        border-radius: 1.5rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      .about-text p {
-        font-size: 0.95rem;
-      }
-
-      .skill-badge {
-        padding: 0.5rem 1rem;
-
-        font-size: 0.85rem;
-      }
-
-      .interest-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .contact-item {
-        padding: 0.8rem 1rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .interest-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <main class="portfolio">
-
-    <!-- =================================
-         HERO
-    ================================== -->
-    <section class="hero-section">
-
-      <div class="hero-icon">
-        <i class="fas fa-star"></i>
-      </div>
-
-      <h1>Sheena Ugalino</h1>
-
-      <div class="tagline">
-        <i class="fas fa-cloud"></i>
-        learning · dreaming · growing
-      </div>
-
-      <div class="student-info">
-        <i class="fas fa-graduation-cap"></i>
-        Grade 7 Student · Young Learner · Future Dreamer
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         ABOUT ME
-    ================================== -->
-    <section class="about-section card">
-
-      <h2>
-        <i class="fas fa-feather-alt"></i>
-        about me
-      </h2>
-
-      <div class="about-text">
-
-        <p>
-          Hello! I'm <strong>Sheena Ugalino</strong>, a
-          <span class="highlight">Grade 7 student</span>
-          who enjoys learning new things and discovering what I'm capable of.
-        </p>
-
-        <p>
-          I'm still beginning my journey in school and technology,
-          but I'm excited to learn, explore, and improve myself every day.
-          I believe that every small step I take today can help me achieve
-          my dreams in the future. 🌷
-        </p>
-
-        <p>
-          This portfolio is a little space where I can share my interests,
-          skills, goals, and the things I am learning along the way.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         INTERESTS
-    ================================== -->
-    <section class="interests-section card">
-
-      <h2>
-        <i class="fas fa-heart"></i>
-        my interests
-      </h2>
-
-      <p style="color:#685f86; margin-bottom:1rem;">
-        Here are some things that I enjoy and would love to explore more:
-      </p>
-
-      <div class="interest-grid">
-
-        <div class="interest-card">
-
-          <i class="fas fa-laptop-code"></i>
-
-          <h3>Technology</h3>
-
-          <p>
-            Learning how computers and technology work.
-          </p>
-
-        </div>
-
-
-        <div class="interest-card">
-
-          <i class="fas fa-book-open"></i>
-
-          <h3>Learning</h3>
-
-          <p>
-            Discovering new ideas and gaining knowledge.
-          </p>
-
-        </div>
-
-
-        <div class="interest-card">
-
-          <i class="fas fa-paint-brush"></i>
-
-          <h3>Creativity</h3>
-
-          <p>
-            Expressing my ideas through creative projects.
-          </p>
-
-        </div>
-
-
-        <div class="interest-card">
-
-          <i class="fas fa-music"></i>
-
-          <h3>Music</h3>
-
-          <p>
-            Enjoying music and discovering new songs.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         SKILLS
-    ================================== -->
-    <section class="skills-section card">
-
-      <h2>
-        <i class="fas fa-palette"></i>
-        my skills
-      </h2>
-
-      <p style="margin-bottom:0.75rem; color:#685f86;">
-        These are some of the skills I am currently learning and developing:
-      </p>
-
-      <div class="skills-grid">
-
-        <div class="skill-badge">
-          <i class="fas fa-file-word"></i>
-          Microsoft Word
-        </div>
-
-        <div class="skill-badge">
-          <i class="fas fa-file-powerpoint"></i>
-          PowerPoint
-        </div>
-
-        <div class="skill-badge">
-          <i class="fas fa-table"></i>
-          Microsoft Excel
-        </div>
-
-        <div class="skill-badge">
-          <i class="fab fa-html5"></i>
-          HTML & CSS
-        </div>
-
-        <div class="skill-badge">
-          <i class="fas fa-code"></i>
-          Basic Coding
-        </div>
-
-      </div>
-
-      <div class="learning-note">
-
-        <i
-          class="fas fa-sparkles"
-          style="margin-right:0.5rem; color:#e9a6c3;">
-        </i>
-
-        I'm still learning and improving my skills.
-        Every new lesson is another small step toward becoming better
-        at what I do! ✨
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         MY GOALS
-    ================================== -->
-    <section class="goals-section card">
-
-      <h2>
-        <i class="fas fa-bullseye"></i>
-        my goals
-      </h2>
-
-      <ul class="goals-list">
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Improve my skills in technology and computers.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Learn more about HTML, CSS, and programming.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Become more confident in sharing my ideas.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Do my best in school and continue learning.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Build creative and useful projects in the future.
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- =================================
-         CONTACT
-    ================================== -->
-    <section class="contact-section card">
-
-      <h2>
-        <i class="fas fa-envelope-open-text"></i>
-        let's connect
-      </h2>
-
-      <p style="color:#685f86; margin-bottom:1rem;">
-        Want to know more about me? You can add your contact information below.
-      </p>
-
-      <div class="contact-info">
-
-        <div class="contact-item">
-
-          <i class="fas fa-envelope"></i>
-
-          <span class="contact-detail">
-            your-email@example.com
-          </span>
-
-        </div>
-
-
-        <div class="contact-item">
-
-          <i class="fas fa-phone"></i>
-
-          <span class="contact-detail">
-            Your phone number
-          </span>
-
-        </div>
-
-      </div>
-
-      <div
-        style="
-          margin-top:1.2rem;
-          background:#fff6ea;
-          border-radius:2rem;
-          padding:0.6rem 1.2rem;
-          display:inline-block;
-          font-size:0.85rem;
-          color:#6a5d8a;
-        "
-      >
-
-        <i class="fas fa-clock"></i>
-
-        Thank you for visiting my portfolio! 🌸
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         FOOTER
-    ================================== -->
-    <footer class="footer-note">
-
-      <i class="fas fa-sparkles"></i>
-
-      designed with pastel colors & gentle code
-
-      ·
-
-      <strong>Sheena Ugalino</strong>
-
-      <br>
-
-      <span style="font-size:0.75rem;">
-        Grade 7 Student · Keep learning, keep growing 🌷
-      </span>
-
-    </footer>
-
-  </main>
 
 </body>
 </html>
-
-You can paste this directly into a file such as index.html and open it in your browser.
-
-
-
-
-Resume.io
-CV Done Right
-ChatGPT gives you a draft. We give you a real CV.
-Ad
-
-You said:
-
-Hello! I'm Sheena Ugalino, a Grade 7 student who enjoys learning new things and discovering what I'm capable of.
-
-I'm still beginning my journey in school and technology, but I'm excited to learn, explore, and improve myself every day. I believe that every small step I take today can help me achieve my dreams in the future. 🌷
-
-This portfolio is a little space where I can share my interests, skills, goals, and the things I am learning along the way.
-
-make this different cuz im a grade 7 student only
-
-ChatGPT said:
-Sure! Since you're a Grade 7 student, we can make it sound more natural, simple, and student-like rather than making it sound too professional.
-
-About Me
-
-
-Hello! I'm Sheena Ugalino, a Grade 7 student who enjoys spending time learning, having fun, and trying new things. I am a simple student who is curious about the world around me and always willing to learn something new.
-
-As a Grade 7 student, I am still discovering my interests and learning more about my strengths. I enjoy school, exploring new ideas, and improving my skills little by little. I know I still have a lot to learn, but I am excited to see how much I can grow.
-
-This portfolio is a small collection of who I am as a student, including my interests, skills, goals, and some of the things I have learned. 🌷
-
-
-
-
-Resume.io
-CV Done Right
-ChatGPT gives you a draft. We give you a real CV.
-Ad
-
-You said:
-
-can you make another and connect it to my personalities as a grade 7 student
-
-ChatGPT said:
-Of course! Here’s a more personal version that focuses on your personality as a Grade 7 student—curious, friendly, still learning, and growing.
-
-About Me
-
-
-Hello! I'm Sheena Ugalino, a Grade 7 student who is a little shy at first but becomes more comfortable once I get to know people. I am a curious and hardworking student who enjoys learning new things, especially when something catches my interest.
-
-Being a Grade 7 student is a new experience for me. There are many things I am still learning about school, friendships, and myself. Sometimes I may feel nervous when trying something new, but I always try my best and remind myself that it is okay to make mistakes because they help me learn and improve.
-
-I may still be young and figuring things out, but I have dreams and goals that I want to achieve someday. For now, I want to enjoy my time as a student, make good memories, learn from my experiences, and become a better version of myself little by little. 🌷✨
-
-
-
-
-Hatchable
-Build a live app from ChatGPT
-We give your app a live URL and everything it needs to work. Free.
-Ad
-
-You said:
-
-drop the whole codew\
-
-ChatGPT said:
-Absolutely — here is the whole updated code, with the new personality-based “About Me” section included. You can copy everything and replace your old index.html.
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-  <title>Sheena Ugalino | My Portfolio</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <style>
-    /* ================================
-       RESET
-    ================================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* ================================
-       COLORS
-    ================================= */
-    :root {
-      --pastel-yellow: #fff0cf;
-      --pastel-pink: #ffe2f0;
-      --pastel-purple: #e9dcff;
-      --pastel-blue: #d4eaff;
-
-      --soft-lavender: #cbb9ff;
-      --accent-purple: #b49bdf;
-      --accent-pink: #f5b0d0;
-
-      --card-bg: rgba(255, 253, 250, 0.94);
-
-      --text-dark: #403d52;
-      --text-light: #716987;
-
-      --shadow-sm:
-        0 12px 28px rgba(0, 0, 0, 0.04),
-        0 0 0 1px rgba(0, 0, 0, 0.02);
-
-      --shadow-hover:
-        0 24px 36px -12px rgba(0, 0, 0, 0.12);
-    }
-
-    /* ================================
-       BODY
-    ================================= */
-    body {
-      font-family: 'Inter', sans-serif;
-
-      background:
-        linear-gradient(
-          145deg,
-          #fff9e8 0%,
-          #ffeef8 45%,
-          #eee8ff 100%
-        );
-
-      background-size: 200% 200%;
-      animation: gentleShift 20s ease infinite;
-
-      color: var(--text-dark);
-      line-height: 1.6;
-
-      padding: 2rem 1.5rem;
-
-      min-height: 100vh;
-    }
-
-    /* ================================
-       MAIN PORTFOLIO
-    ================================= */
-    .portfolio {
-      max-width: 1100px;
-      margin: 0 auto;
-
-      background: var(--card-bg);
-
-      backdrop-filter: blur(8px);
-
-      border-radius: 2.5rem;
-
-      padding: 2rem;
-
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* ================================
-       HERO SECTION
-    ================================= */
-    .hero-section {
-      text-align: center;
-
-      padding: 2rem 1rem 3rem;
-
-      margin-bottom: 1rem;
-    }
-
-    .hero-icon {
-      width: 85px;
-      height: 85px;
-
-      margin: 0 auto 1.2rem;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffe0b5,
-          #ffcfdf,
-          #d9c7ff
-        );
-
-      color: #967bbd;
-
-      font-size: 2.4rem;
-
-      box-shadow:
-        0 12px 25px rgba(180, 140, 200, 0.2);
-
-      border: 4px solid white;
-
-      transition: 0.3s ease;
-    }
-
-    .hero-icon:hover {
-      transform: scale(1.05) rotate(3deg);
-    }
-
-    h1 {
-      font-size: 3.2rem;
-
-      font-weight: 700;
-
-      background:
-        linear-gradient(
-          120deg,
-          #9b7bc2,
-          #f0a6c0,
-          #7fa8c9
-        );
-
-      background-clip: text;
-      -webkit-background-clip: text;
-
-      color: transparent;
-
-      letter-spacing: -0.02em;
-
-      margin-bottom: 0.6rem;
-    }
-
-    .tagline {
-      display: inline-block;
-
-      font-size: 1.1rem;
-
-      font-weight: 500;
-
-      background:
-        linear-gradient(
-          120deg,
-          #fce9b4,
-          #ffe0f5
-        );
-
-      padding: 0.5rem 1.4rem;
-
-      border-radius: 60px;
-
-      color: #665a87;
-
-      border: 1px solid #fff3e6;
-
-      box-shadow:
-        0 2px 6px rgba(0,0,0,0.03);
-    }
-
-    .tagline i {
-      color: #e9a6c3;
-      margin-right: 6px;
-    }
-
-    .student-info {
-      margin-top: 1rem;
-
-      color: #9e8bbc;
-
-      font-size: 0.95rem;
-    }
-
-    /* ================================
-       CARDS
-    ================================= */
-    .card {
-      background: rgba(255, 255, 252, 0.88);
-
-      backdrop-filter: blur(6px);
-
-      border-radius: 2rem;
-
-      padding: 1.8rem 2rem;
-
-      margin-bottom: 2rem;
-
-      border: 1px solid rgba(220, 200, 250, 0.5);
-
-      box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.02);
-
-      transition:
-        all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-
-      box-shadow: var(--shadow-hover);
-
-      background: rgba(255, 255, 252, 0.98);
-
-      border-color: #f3e0ff;
-    }
-
-    /* ================================
-       HEADINGS
-    ================================= */
-    h2 {
-      font-size: 1.8rem;
-
-      font-weight: 600;
-
-      display: flex;
-      align-items: center;
-
-      gap: 0.7rem;
-
-      color: #5e5180;
-
-      margin-bottom: 1.3rem;
-
-      border-left: 6px solid;
-
-      border-image:
-        linear-gradient(
-          135deg,
-          #ffc3e0,
-          #c1b2ff
-        );
-
-      border-image-slice: 1;
-
-      padding-left: 1rem;
-    }
-
-    h2 i {
-      font-size: 1.5rem;
-
-      color: #b494d4;
-    }
-
-    /* ================================
-       ABOUT ME
-    ================================= */
-    .about-text p {
-      font-size: 1.05rem;
-
-      margin-bottom: 1rem;
-
-      color: #47455c;
-    }
-
-    .highlight {
-      background:
-        linear-gradient(
-          120deg,
-          #fff2cf,
-          #ffe2f0
-        );
-
-      padding: 0.1rem 0.4rem;
-
-      border-radius: 20px;
-
-      font-weight: 500;
-
-      color: #5e4b8b;
-    }
-
-    /* ================================
-       INTERESTS
-    ================================= */
-    .interest-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-      gap: 1rem;
-
-      margin-top: 1rem;
-    }
-
-    .interest-card {
-      padding: 1.3rem;
-
-      border-radius: 1.5rem;
-
-      text-align: center;
-
-      transition: 0.25s ease;
-
-      border: 1px solid transparent;
-    }
-
-    .interest-card:nth-child(1) {
-      background: #fff4e0;
-      border-color: #ffe1b9;
-    }
-
-    .interest-card:nth-child(2) {
-      background: #ffeef5;
-      border-color: #ffd9ea;
-    }
-
-    .interest-card:nth-child(3) {
-      background: #e9f0ff;
-      border-color: #cfe2ff;
-    }
-
-    .interest-card:nth-child(4) {
-      background: #efe7ff;
-      border-color: #decfff;
-    }
-
-    .interest-card:hover {
-      transform: translateY(-4px) scale(1.02);
-
-      box-shadow:
-        0 10px 20px rgba(100,80,140,0.08);
-    }
-
-    .interest-card i {
-      font-size: 1.8rem;
-
-      color: #a98bcf;
-
-      margin-bottom: 0.6rem;
-    }
-
-    .interest-card h3 {
-      font-size: 1rem;
-
-      color: #51476d;
-
-      margin-bottom: 0.3rem;
-    }
-
-    .interest-card p {
-      font-size: 0.85rem;
-
-      color: #766d89;
-    }
-
-    /* ================================
-       SKILLS
-    ================================= */
-    .skills-grid {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 0.9rem;
-
-      margin-top: 1.2rem;
-    }
-
-    .skill-badge {
-      background: white;
-
-      border-radius: 80px;
-
-      padding: 0.65rem 1.4rem;
-
-      font-weight: 500;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 0.6rem;
-
-      font-size: 0.95rem;
-
-      border: 1px solid #fae6ff;
-
-      box-shadow:
-        0 1px 4px rgba(0,0,0,0.02);
-
-      transition: 0.25s ease;
-    }
-
-    .skill-badge:nth-child(1) {
-      background: #fff4e0;
-      border-color: #ffe1b9;
-    }
-
-    .skill-badge:nth-child(2) {
-      background: #ffeef5;
-      border-color: #ffd9ea;
-    }
-
-    .skill-badge:nth-child(3) {
-      background: #e9f0ff;
-      border-color: #cfe2ff;
-    }
-
-    .skill-badge:nth-child(4) {
-      background: #efe7ff;
-      border-color: #decfff;
-    }
-
-    .skill-badge:nth-child(5) {
-      background: #fff0d6;
-      border-color: #ffe1be;
-    }
-
-    .skill-badge i {
-      font-size: 1.2rem;
-      color: #a98bcf;
-    }
-
-    .skill-badge:hover {
-      transform: translateY(-3px) scale(1.02);
-
-      background: white;
-
-      box-shadow:
-        0 8px 18px -10px rgba(128, 108, 168, 0.2);
-    }
-
-    /* ================================
-       LEARNING NOTE
-    ================================= */
-    .learning-note {
-      margin-top: 1.6rem;
-
-      background:
-        linear-gradient(
-          135deg,
-          #fff3e0,
-          #ffecf5
-        );
-
-      padding: 1rem 1.3rem;
-
-      border-radius: 2rem;
-
-      font-size: 0.92rem;
-
-      color: #6a5d8a;
-
-      border-left: 6px solid #f5b0d0;
-    }
-
-    /* ================================
-       GOALS
-    ================================= */
-    .goals-list {
-      list-style: none;
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 0.8rem;
-    }
-
-    .goals-list li {
-      background: #fff;
-
-      padding: 0.9rem 1.2rem;
-
-      border-radius: 1.5rem;
-
-      border: 1px solid #eee2fa;
-
-      color: #514b64;
-
-      transition: 0.25s ease;
-    }
-
-    .goals-list li:hover {
-      transform: translateX(6px);
-
-      background: #fffaff;
-    }
-
-    .goals-list i {
-      color: #d29bc0;
-
-      margin-right: 0.6rem;
-    }
-
-    /* ================================
-       CONTACT
-    ================================= */
-    .contact-info {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 1rem;
-    }
-
-    .contact-item {
-      display: flex;
-
-      align-items: center;
-
-      gap: 1rem;
-
-      background: #ffffffdd;
-
-      padding: 0.9rem 1.3rem;
-
-      border-radius: 2rem;
-
-      border: 1px solid #f0e2fd;
-
-      transition: 0.25s ease;
-    }
-
-    .contact-item i {
-      width: 2rem;
-
-      font-size: 1.3rem;
-
-      color: #c2a5f0;
-    }
-
-    .contact-detail {
-      font-weight: 500;
-
-      color: #3d3a54;
-
-      word-break: break-word;
-    }
-
-    .contact-item:hover {
-      background: white;
-
-      transform: translateX(6px);
-
-      border-color: #e1ceff;
-
-      box-shadow:
-        0 6px 12px -12px rgba(0,0,0,0.1);
-    }
-
-    /* ================================
-       FOOTER
-    ================================= */
-    .footer-note {
-      text-align: center;
-
-      margin-top: 2rem;
-
-      font-size: 0.85rem;
-
-      color: #b7a2da;
-
-      border-top: 1px solid #f3e7ff;
-
-      padding-top: 1.8rem;
-    }
-
-    /* ================================
-       ANIMATIONS
-    ================================= */
-    @keyframes gentleShift {
-      0% {
-        background-position: 0% 0%;
-      }
-
-      50% {
-        background-position: 100% 100%;
-      }
-
-      100% {
-        background-position: 0% 0%;
-      }
-    }
-
-    @keyframes floatRise {
-      0% {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .portfolio > * {
-      animation:
-        floatRise 0.7s
-        cubic-bezier(0.2, 0.9, 0.4, 1.1)
-        forwards;
-
-      opacity: 0;
-    }
-
-    .hero-section {
-      animation-delay: 0.05s;
-    }
-
-    .about-section {
-      animation-delay: 0.12s;
-    }
-
-    .interests-section {
-      animation-delay: 0.19s;
-    }
-
-    .skills-section {
-      animation-delay: 0.26s;
-    }
-
-    .goals-section {
-      animation-delay: 0.33s;
-    }
-
-    .contact-section {
-      animation-delay: 0.40s;
-    }
-
-    .footer-note {
-      animation-delay: 0.47s;
-    }
-
-    /* ================================
-       MOBILE
-    ================================= */
-    @media (max-width: 600px) {
-
-      body {
-        padding: 1rem;
-      }
-
-      .portfolio {
-        padding: 1.2rem;
-        border-radius: 1.8rem;
-      }
-
-      .hero-section {
-        padding: 1.5rem 0.5rem 2rem;
-      }
-
-      h1 {
-        font-size: 2.3rem;
-      }
-
-      .tagline {
-        font-size: 0.9rem;
-        padding: 0.45rem 1rem;
-      }
-
-      .card {
-        padding: 1.2rem;
-        border-radius: 1.5rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      .about-text p {
-        font-size: 0.95rem;
-      }
-
-      .skill-badge {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-      }
-
-      .interest-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .contact-item {
-        padding: 0.8rem 1rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .interest-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <main class="portfolio">
-
-    <!-- =================================
-         HERO SECTION
-    ================================== -->
-    <section class="hero-section">
-
-      <div class="hero-icon">
-        <i class="fas fa-star"></i>
-      </div>
-
-      <h1>Sheena Ugalino</h1>
-
-      <div class="tagline">
-        <i class="fas fa-cloud"></i>
-        learning · dreaming · growing
-      </div>
-
-      <div class="student-info">
-        <i class="fas fa-graduation-cap"></i>
-        Grade 7 Student · Young Learner · Future Dreamer
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         ABOUT ME
-    ================================== -->
-    <section class="about-section card">
-
-      <h2>
-        <i class="fas fa-feather-alt"></i>
-        about me
-      </h2>
-
-      <div class="about-text">
-
-        <p>
-          Hello! I'm <strong>Sheena Ugalino</strong>, a
-          <span class="highlight">Grade 7 student</span>
-          who is a little shy at first but becomes more comfortable
-          once I get to know people. I am a curious and hardworking
-          student who enjoys learning new things, especially when
-          something catches my interest.
-        </p>
-
-        <p>
-          Being a Grade 7 student is a new experience for me.
-          There are many things I am still learning about school,
-          friendships, and myself. Sometimes I may feel nervous when
-          trying something new, but I always try my best and remind
-          myself that it is okay to make mistakes because they help
-          me learn and improve.
-        </p>
-
-        <p>
-          I may still be young and figuring things out, but I have
-          dreams and goals that I want to achieve someday. For now,
-          I want to enjoy my time as a student, make good memories,
-          learn from my experiences, and become a better version of
-          myself little by little. 🌷✨
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         MY INTERESTS
-    ================================== -->
-    <section class="interests-section card">
-
-      <h2>
-        <i class="fas fa-heart"></i>
-        my interests
-      </h2>
-
-      <p style="color:#685f86; margin-bottom:1rem;">
-        Here are some things I enjoy and would like to learn more about:
-      </p>
-
-      <div class="interest-grid">
-
-        <div class="interest-card">
-
-          <i class="fas fa-laptop-code"></i>
-
-          <h3>Technology</h3>
-
-          <p>
-            I enjoy discovering how computers and technology work.
-          </p>
-
-        </div>
-
-
-        <div class="interest-card">
-
-          <i class="fas fa-book-open"></i>
-
-          <h3>Learning</h3>
-
-          <p>
-            I like learning new things and discovering new ideas.
-          </p>
-
-        </div>
-
-
-        <div class="interest-card">
-
-          <i class="fas fa-paint-brush"></i>
-
-          <h3>Creativity</h3>
-
-          <p>
-            I enjoy expressing my ideas through creative activities.
-          </p>
-
-        </div>
-
-
-        <div class="interest-card">
-
-          <i class="fas fa-music"></i>
-
-          <h3>Music</h3>
-
-          <p>
-            I enjoy listening to music during my free time.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         MY SKILLS
-    ================================== -->
-    <section class="skills-section card">
-
-      <h2>
-        <i class="fas fa-palette"></i>
-        my skills
-      </h2>
-
-      <p style="margin-bottom:0.75rem; color:#685f86;">
-        These are some of the skills I am currently learning and practicing:
-      </p>
-
-      <div class="skills-grid">
-
-        <div class="skill-badge">
-          <i class="fas fa-file-word"></i>
-          Microsoft Word
-        </div>
-
-        <div class="skill-badge">
-          <i class="fas fa-file-powerpoint"></i>
-          PowerPoint
-        </div>
-
-        <div class="skill-badge">
-          <i class="fas fa-table"></i>
-          Microsoft Excel
-        </div>
-
-        <div class="skill-badge">
-          <i class="fab fa-html5"></i>
-          HTML & CSS
-        </div>
-
-        <div class="skill-badge">
-          <i class="fas fa-code"></i>
-          Basic Coding
-        </div>
-
-      </div>
-
-      <div class="learning-note">
-
-        <i
-          class="fas fa-sparkles"
-          style="margin-right:0.5rem; color:#e9a6c3;">
-        </i>
-
-        I am still learning and improving my skills.
-        Every new lesson is another small step toward becoming
-        better at what I do! ✨
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         MY GOALS
-    ================================== -->
-    <section class="goals-section card">
-
-      <h2>
-        <i class="fas fa-bullseye"></i>
-        my goals
-      </h2>
-
-      <ul class="goals-list">
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Do my best in my studies.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Learn more about computers and technology.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Improve my skills and discover new talents.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Become more confident in myself.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Make good memories with my friends and classmates.
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Continue growing and becoming a better student.
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- =================================
-         CONTACT
-    ================================== -->
-    <section class="contact-section card">
-
-      <h2>
-        <i class="fas fa-envelope-open-text"></i>
-        let's connect
-      </h2>
-
-      <p style="color:#685f86; margin-bottom:1rem;">
-        You can add your contact information here.
-      </p>
-
-      <div class="contact-info">
-
-        <div class="contact-item">
-
-          <i class="fas fa-envelope"></i>
-
-          <span class="contact-detail">
-            your-email@example.com
-          </span>
-
-        </div>
-
-
-        <div class="contact-item">
-
-          <i class="fas fa-phone"></i>
-
-          <span class="contact-detail">
-            Your phone number
-          </span>
-
-        </div>
-
-      </div>
-
-      <div
-        style="
-          margin-top:1.2rem;
-          background:#fff6ea;
-          border-radius:2rem;
-          padding:0.6rem 1.2rem;
-          display:inline-block;
-          font-size:0.85rem;
-          color:#6a5d8a;
-        "
-      >
-
-        <i class="fas fa-heart"></i>
-
-        Thank you for visiting my portfolio! 🌸
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================
-         FOOTER
-    ================================== -->
-    <footer class="footer-note">
-
-      <i class="fas fa-sparkles"></i>
-
-      designed with pastel colors & gentle code
-
-      ·
-
-      <strong>Sheena Ugalino</strong>
-
-      <br>
-
-      <span style="font-size:0.75rem;">
-        Grade 7 Student · Keep learning, keep growing 🌷
-      </span>
-
-    </footer>
-
-  </main>
-
-</body>
-</html>
-
-put a modern design with girly purple theme and put all the information i gave to you give me the whole code okay?
