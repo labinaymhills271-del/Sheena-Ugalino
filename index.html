@@ -1,0 +1,2731 @@
+Log in
+You said:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Monica Unida | softly building · quietly curious</title>
+  <!-- Google Fonts: clean, modern sans-serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #fff9e8 0%, #ffeef8 100%);
+      color: #2e2c3a;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    /* Pastel color palette: yellow, pink, purple, blue */
+    :root {
+      --pastel-yellow: #fff0cf;
+      --pastel-pink: #ffe2f0;
+      --pastel-purple: #e9dcff;
+      --pastel-blue: #d4eaff;
+      --soft-lavender: #cbb9ff;
+      --card-bg: rgba(255, 253, 250, 0.92);
+      --accent-purple: #b49bdf;
+      --accent-pink: #f5b0d0;
+      --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      --shadow-hover: 0 24px 36px -12px rgba(0, 0, 0, 0.12);
+      --text-dark: #403d52;
+    }
+
+    /* main container – elegant & centered */
+    .portfolio {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      padding: 2rem 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    /* smooth entrance animation */
+    @keyframes floatRise {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .portfolio > * {
+      animation: floatRise 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+      opacity: 0;
+    }
+
+    /* staggered animation */
+    .hero-section { animation-delay: 0.05s; }
+    .about-section { animation-delay: 0.12s; }
+    .skills-section { animation-delay: 0.19s; }
+    .contact-section { animation-delay: 0.26s; }
+    .footer-note { animation-delay: 0.33s; }
+
+    /* hero section: profile + intro */
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      justify-content: center;
+    }
+
+    .profile-placeholder {
+      flex-shrink: 0;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, #ffe0b5, #ffcfdf, #d9c7ff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 25px rgba(180, 140, 200, 0.2);
+      transition: all 0.4s ease;
+      border: 4px solid white;
+    }
+
+    .profile-placeholder:hover {
+      transform: scale(1.02) rotate(2deg);
+      box-shadow: 0 20px 30px rgba(160, 130, 190, 0.25);
+    }
+
+    .profile-placeholder i {
+      font-size: 5rem;
+      color: #a084ca;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.05));
+      transition: transform 0.3s;
+    }
+
+    .profile-placeholder:hover i {
+      transform: scale(1.05);
+      color: #bda0e6;
+    }
+
+    .intro-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .hero-section {
+        flex-wrap: nowrap;
+        text-align: left;
+        justify-content: flex-start;
+      }
+      .intro-text {
+        text-align: left;
+      }
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #9b7bc2, #f0a6c0, #7fa8c9);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      font-weight: 500;
+      background: linear-gradient(120deg, #fce9b4, #ffe0f5);
+      display: inline-block;
+      padding: 0.4rem 1.3rem;
+      border-radius: 60px;
+      color: #665a87;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      border: 1px solid #fff3e6;
+    }
+
+    .tagline i {
+      margin-right: 6px;
+      color: #e9a6c3;
+    }
+
+    /* card style – soft, modern, pastel touches */
+    .card {
+      background: rgba(255, 255, 252, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(220, 200, 250, 0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      background: rgba(255, 255, 252, 0.98);
+      border-color: #f3e0ff;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: #5e5180;
+      margin-bottom: 1.3rem;
+      border-left: 6px solid;
+      border-image: linear-gradient(135deg, #ffc3e0, #c1b2ff);
+      border-image-slice: 1;
+      padding-left: 1rem;
+    }
+
+    h2 i {
+      font-size: 1.6rem;
+      background: linear-gradient(145deg, #ebc2ff, #b5a2e3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: #b494d4;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: #47455c;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #fff2cf, #ffe2f0);
+      padding: 0.1rem 0.4rem;
+      border-radius: 20px;
+      font-weight: 500;
+      color: #5e4b8b;
+    }
+
+    /* skills grid – cute badges with pastel mix */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .skill-badge {
+      background: #ffffffdd;
+      border-radius: 80px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      border: 1px solid #fae6ff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      backdrop-filter: blur(2px);
+    }
+
+    .skill-badge:nth-child(1) { background: #fff4e0; border-color: #ffe1b9; }
+    .skill-badge:nth-child(2) { background: #ffeef5; border-color: #ffd9ea; }
+    .skill-badge:nth-child(3) { background: #e9f0ff; border-color: #cfe2ff; }
+    .skill-badge:nth-child(4) { background: #efe7ff; border-color: #decfff; }
+    .skill-badge:nth-child(5) { background: #fff0d6; border-color: #ffe1be; }
+
+    .skill-badge i {
+      font-size: 1.2rem;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: white;
+      box-shadow: 0 8px 18px -10px rgba(128, 108, 168, 0.2);
+    }
+
+    .learning-note {
+      margin-top: 1.6rem;
+      background: linear-gradient(135deg, #fff3e0, #ffecf5);
+      padding: 0.9rem 1.3rem;
+      border-radius: 2rem;
+      font-size: 0.92rem;
+      color: #6a5d8a;
+      border-left: 6px solid #f5b0d0;
+    }
+
+    /* contact area */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: #ffffffdd;
+      padding: 0.9rem 1.3rem;
+      border-radius: 2rem;
+      transition: all 0.25s;
+      border: 1px solid #f0e2fd;
+      cursor: pointer;
+    }
+
+    .contact-item i {
+      width: 2rem;
+      font-size: 1.4rem;
+      color: #c2a5f0;
+    }
+
+    .contact-detail {
+      font-weight: 500;
+      color: #3d3a54;
+      word-break: break-all;
+    }
+
+    .contact-item .copy-hint {
+      margin-left: auto;
+      font-size: 0.7rem;
+      background: #f7efff;
+      padding: 0.25rem 0.8rem;
+      border-radius: 40px;
+      color: #9c86c4;
+      transition: 0.2s;
+    }
+
+    .contact-item:hover {
+      background: white;
+      transform: translateX(8px);
+      border-color: #e1ceff;
+      box-shadow: 0 6px 12px -12px rgba(0,0,0,0.1);
+    }
+
+    .contact-item:active {
+      transform: scale(0.98);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #b7a2da;
+      border-top: 1px solid #f3e7ff;
+      padding-top: 1.8rem;
+    }
+
+    /* mobile responsiveness */
+    @media (max-width: 560px) {
+      body {
+        padding: 1rem;
+      }
+      .portfolio {
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .tagline {
+        font-size: 0.95rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+      .skill-badge {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+      }
+      .contact-item {
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    /* cute soft gradient background animation */
+    @keyframes gentleShift {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    body {
+      background-size: 200% 200%;
+      animation: gentleShift 20s ease infinite;
+    }
+
+    /* custom toast for copy feedback */
+    .custom-toast {
+      animation: fadeSlide 0.2s ease-out;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="portfolio">
+  <!-- Hero Section: profile placeholder + intro -->
+  <div class="hero-section">
+    <div class="profile-placeholder">
+      <i class="fas fa-face-smile-wink"></i>
+    </div>
+    <div class="intro-text">
+      <h1>Monica Unida</h1>
+      <div class="tagline">
+        <i class="fas fa-cloud-moon"></i> softly learning · gently growing
+      </div>
+      <div style="margin-top: 0.75rem; font-size: 0.9rem; color: #9e8bbc;">
+        <i class="fas fa-star"></i> shy soul, big dreams in tech
+      </div>
+    </div>
+  </div>
+
+  <!-- About section: school & trainee details -->
+  <div class="about-section card">
+    <h2><i class="fas fa-feather-alt"></i> about myself</h2>
+    <div class="about-text">
+      <p>Hello! I'm <strong>Monica Unida</strong> — a student at <span class="highlight">Licerio Antiporda Sr. National High School - Main</span> and a trainee at <span class="highlight">Lyceum of Aparri</span> as part of the <strong>ATP Auxiliary Technology Program</strong>. 
+      I may be shy, but my curiosity for technology speaks loudly. I love discovering how things work and turning ideas into digital realities.</p>
+      <p>Every day, I'm excited to explore more about the tech world — from creating documents to writing small pieces of code. I believe that learning is a beautiful journey, and I'm just getting started. 🌷</p>
+    </div>
+  </div>
+
+  <!-- Training & Skills section: microsoft tools + html/css -->
+  <div class="skills-section card">
+    <h2><i class="fas fa-palette"></i> what I've learned</h2>
+    <p style="margin-bottom: 0.75rem; color: #685f86;">During my ATP training, I gained practical knowledge in:</p>
+    <div class="skills-grid">
+      <div class="skill-badge"><i class="fab fa-microsoft"></i> Microsoft Word</div>
+      <div class="skill-badge"><i class="fas fa-chalkboard"></i> PowerPoint</div>
+      <div class="skill-badge"><i class="fas fa-chart-line"></i> Microsoft Excel</div>
+      <div class="skill-badge"><i class="fab fa-html5"></i> HTML & CSS</div>
+      <div class="skill-badge"><i class="fas fa-code"></i> Simple Coding</div>
+    </div>
+    <div class="learning-note">
+      <i class="fas fa-sparkle" style="margin-right: 0.5rem; color: #e9a6c3;"></i> 
+      Currently exploring responsive layouts and little touches of JavaScript — each step feels like a small victory!
+    </div>
+  </div>
+
+  <!-- Contact section: email & phone with copy interaction -->
+  <div class="contact-section card">
+    <h2><i class="fas fa-envelope-open-text"></i> let's connect</h2>
+    <div class="contact-info">
+      <!-- Email item (copy feature) -->
+      <div class="contact-item" data-copy-text="unidamonica@gmail.com" id="emailContact">
+        <i class="fas fa-envelope"></i>
+        <span class="contact-detail">unidamonica@gmail.com</span>
+        <span class="copy-hint"><i class="far fa-copy"></i> copy</span>
+      </div>
+      <!-- Phone item (copy feature) -->
+      <div class="contact-item" data-copy-text="09061339038" id="phoneContact">
+        <i class="fas fa-phone-alt"></i>
+        <span class="contact-detail">0906 133 9038</span>
+        <span class="copy-hint"><i class="far fa-copy"></i> copy</span>
+      </div>
+    </div>
+    <div style="margin-top: 1.2rem; background: #fff6ea; border-radius: 2rem; padding: 0.5rem 1.2rem; display: inline-block; width: auto; font-size: 0.85rem;">
+      <i class="fas fa-clock"></i> feel free to reach out — I'd love to connect!
+    </div>
+  </div>
+
+  <!-- tiny footer signature -->
+  <div class="footer-note">
+    <i class="fas fa-crown"></i> designed with pastel hues & gentle code · Monica Unida
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Helper: create a cute toast notification
+    function showNotification(message, isError = false) {
+      const existingToast = document.querySelector('.custom-toast');
+      if (existingToast) existingToast.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'custom-toast';
+      toast.innerText = message;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '24px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = isError ? '#ffe0dc' : '#f1e7ff';
+      toast.style.color = '#4d3f6e';
+      toast.style.padding = '0.7rem 1.6rem';
+      toast.style.borderRadius = '50px';
+      toast.style.fontSize = '0.85rem';
+      toast.style.fontWeight = '500';
+      toast.style.backdropFilter = 'blur(12px)';
+      toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.08)';
+      toast.style.border = '1px solid #f5e9ff';
+      toast.style.zIndex = '1000';
+      toast.style.fontFamily = "'Inter', sans-serif";
+      toast.style.pointerEvents = 'none';
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.2s';
+        setTimeout(() => {
+          if (toast.parentNode) toast.remove();
+        }, 200);
+      }, 2000);
+    }
+
+    // attach copy functionality to all contact items with data-copy-text
+    const copyItems = document.querySelectorAll('.contact-item');
+    copyItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const textToCopy = item.getAttribute('data-copy-text');
+        if (textToCopy) {
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            showNotification(`✨ Copied: ${textToCopy}`, false);
+            // micro pop effect
+            item.style.transform = 'scale(0.98)';
+            setTimeout(() => { item.style.transform = ''; }, 150);
+          }).catch(() => {
+            showNotification(`⚠️ Could not copy, please select manually`, true);
+          });
+        }
+      });
+    });
+
+    // format phone number display nicely, but keep raw copy as digits
+    const phoneDiv = document.getElementById('phoneContact');
+    if (phoneDiv) {
+      const phoneSpan = phoneDiv.querySelector('.contact-detail');
+      if (phoneSpan && phoneSpan.innerText.includes('0906')) {
+        phoneSpan.innerText = '0906 133 9038';
+      }
+      // ensure data-copy-text remains raw digits
+      phoneDiv.setAttribute('data-copy-text', '09061339038');
+    }
+    
+    // email raw set correctly
+    const emailDiv = document.getElementById('emailContact');
+    if (emailDiv && !emailDiv.getAttribute('data-copy-text')) {
+      emailDiv.setAttribute('data-copy-text', 'unidamonica@gmail.com');
+    }
+
+    // additional cute detail: add subtle hover effect on cards (already css)
+    console.log("💜 Monica's pastel portfolio — shy & bright ✨");
+  })();
+</script>
+</body>
+</html>
+
+make this as my portfolio my name is SHEENA UGALINO and and im a grade 7 student.
+remove the picture. make this as base with my porfolio
+
+ChatGPT said:
+Absolutely — I’ll keep the same pastel, soft aesthetic as your base, remove the profile picture entirely, and rewrite the content for Sheena Ugalino, Grade 7. I’ll also remove Monica’s school/contact details so you can replace them with your own.
+
+
+Log in for more personalized help with writing, rewriting, and translation.
+
+
+Log in
+
+Sign up for free
+You said:
+
+drop the whole code so that ill copy and paste
+
+ChatGPT said:
+Here’s the complete copy-and-paste version. I kept the pastel style, removed the picture/profile section, and made it a Grade 7 student portfolio for Sheena Ugalino. I also left contact details as placeholders so you can safely add your own.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Sheena Ugalino | My Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* ================================
+       RESET
+    ================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ================================
+       COLOR VARIABLES
+    ================================= */
+    :root {
+      --pastel-yellow: #fff0cf;
+      --pastel-pink: #ffe2f0;
+      --pastel-purple: #e9dcff;
+      --pastel-blue: #d4eaff;
+
+      --soft-lavender: #cbb9ff;
+      --accent-purple: #b49bdf;
+      --accent-pink: #f5b0d0;
+
+      --card-bg: rgba(255, 253, 250, 0.94);
+
+      --text-dark: #403d52;
+      --text-light: #716987;
+
+      --shadow-sm:
+        0 12px 28px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(0, 0, 0, 0.02);
+
+      --shadow-hover:
+        0 24px 36px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ================================
+       BODY
+    ================================= */
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fff9e8 0%,
+          #ffeef8 45%,
+          #eee8ff 100%
+        );
+
+      background-size: 200% 200%;
+      animation: gentleShift 20s ease infinite;
+
+      color: var(--text-dark);
+      line-height: 1.6;
+
+      padding: 2rem 1.5rem;
+
+      min-height: 100vh;
+    }
+
+    /* ================================
+       MAIN PORTFOLIO
+    ================================= */
+    .portfolio {
+      max-width: 1100px;
+      margin: 0 auto;
+
+      background: var(--card-bg);
+
+      backdrop-filter: blur(8px);
+
+      border-radius: 2.5rem;
+
+      padding: 2rem;
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ================================
+       HERO SECTION
+    ================================= */
+    .hero-section {
+      text-align: center;
+
+      padding: 2rem 1rem 3rem;
+
+      margin-bottom: 1rem;
+    }
+
+    .hero-icon {
+      width: 85px;
+      height: 85px;
+
+      margin: 0 auto 1.2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffe0b5,
+          #ffcfdf,
+          #d9c7ff
+        );
+
+      color: #967bbd;
+
+      font-size: 2.4rem;
+
+      box-shadow:
+        0 12px 25px rgba(180, 140, 200, 0.2);
+
+      border: 4px solid white;
+
+      transition: 0.3s ease;
+    }
+
+    .hero-icon:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+
+      font-weight: 700;
+
+      background:
+        linear-gradient(
+          120deg,
+          #9b7bc2,
+          #f0a6c0,
+          #7fa8c9
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      color: transparent;
+
+      letter-spacing: -0.02em;
+
+      margin-bottom: 0.6rem;
+    }
+
+    .tagline {
+      display: inline-block;
+
+      font-size: 1.1rem;
+
+      font-weight: 500;
+
+      background:
+        linear-gradient(
+          120deg,
+          #fce9b4,
+          #ffe0f5
+        );
+
+      padding: 0.5rem 1.4rem;
+
+      border-radius: 60px;
+
+      color: #665a87;
+
+      border: 1px solid #fff3e6;
+
+      box-shadow:
+        0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .tagline i {
+      color: #e9a6c3;
+      margin-right: 6px;
+    }
+
+    .student-info {
+      margin-top: 1rem;
+
+      color: #9e8bbc;
+
+      font-size: 0.95rem;
+    }
+
+    /* ================================
+       CARDS
+    ================================= */
+    .card {
+      background: rgba(255, 255, 252, 0.88);
+
+      backdrop-filter: blur(6px);
+
+      border-radius: 2rem;
+
+      padding: 1.8rem 2rem;
+
+      margin-bottom: 2rem;
+
+      border: 1px solid rgba(220, 200, 250, 0.5);
+
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.02);
+
+      transition:
+        all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow-hover);
+
+      background: rgba(255, 255, 252, 0.98);
+
+      border-color: #f3e0ff;
+    }
+
+    /* ================================
+       HEADINGS
+    ================================= */
+    h2 {
+      font-size: 1.8rem;
+
+      font-weight: 600;
+
+      display: flex;
+      align-items: center;
+
+      gap: 0.7rem;
+
+      color: #5e5180;
+
+      margin-bottom: 1.3rem;
+
+      border-left: 6px solid;
+
+      border-image:
+        linear-gradient(
+          135deg,
+          #ffc3e0,
+          #c1b2ff
+        );
+
+      border-image-slice: 1;
+
+      padding-left: 1rem;
+    }
+
+    h2 i {
+      font-size: 1.5rem;
+
+      color: #b494d4;
+    }
+
+    /* ================================
+       ABOUT
+    ================================= */
+    .about-text p {
+      font-size: 1.05rem;
+
+      margin-bottom: 1rem;
+
+      color: #47455c;
+    }
+
+    .highlight {
+      background:
+        linear-gradient(
+          120deg,
+          #fff2cf,
+          #ffe2f0
+        );
+
+      padding: 0.1rem 0.4rem;
+
+      border-radius: 20px;
+
+      font-weight: 500;
+
+      color: #5e4b8b;
+    }
+
+    /* ================================
+       INTERESTS
+    ================================= */
+    .interest-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 1rem;
+
+      margin-top: 1rem;
+    }
+
+    .interest-card {
+      padding: 1.3rem;
+
+      border-radius: 1.5rem;
+
+      text-align: center;
+
+      transition: 0.25s ease;
+
+      border: 1px solid transparent;
+    }
+
+    .interest-card:nth-child(1) {
+      background: #fff4e0;
+      border-color: #ffe1b9;
+    }
+
+    .interest-card:nth-child(2) {
+      background: #ffeef5;
+      border-color: #ffd9ea;
+    }
+
+    .interest-card:nth-child(3) {
+      background: #e9f0ff;
+      border-color: #cfe2ff;
+    }
+
+    .interest-card:nth-child(4) {
+      background: #efe7ff;
+      border-color: #decfff;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-4px) scale(1.02);
+
+      box-shadow:
+        0 10px 20px rgba(100,80,140,0.08);
+    }
+
+    .interest-card i {
+      font-size: 1.8rem;
+
+      color: #a98bcf;
+
+      margin-bottom: 0.6rem;
+    }
+
+    .interest-card h3 {
+      font-size: 1rem;
+
+      color: #51476d;
+
+      margin-bottom: 0.3rem;
+    }
+
+    .interest-card p {
+      font-size: 0.85rem;
+
+      color: #766d89;
+    }
+
+    /* ================================
+       SKILLS
+    ================================= */
+    .skills-grid {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 0.9rem;
+
+      margin-top: 1.2rem;
+    }
+
+    .skill-badge {
+      background: white;
+
+      border-radius: 80px;
+
+      padding: 0.65rem 1.4rem;
+
+      font-weight: 500;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 0.6rem;
+
+      font-size: 0.95rem;
+
+      border: 1px solid #fae6ff;
+
+      box-shadow:
+        0 1px 4px rgba(0,0,0,0.02);
+
+      transition: 0.25s ease;
+    }
+
+    .skill-badge:nth-child(1) {
+      background: #fff4e0;
+      border-color: #ffe1b9;
+    }
+
+    .skill-badge:nth-child(2) {
+      background: #ffeef5;
+      border-color: #ffd9ea;
+    }
+
+    .skill-badge:nth-child(3) {
+      background: #e9f0ff;
+      border-color: #cfe2ff;
+    }
+
+    .skill-badge:nth-child(4) {
+      background: #efe7ff;
+      border-color: #decfff;
+    }
+
+    .skill-badge:nth-child(5) {
+      background: #fff0d6;
+      border-color: #ffe1be;
+    }
+
+    .skill-badge i {
+      font-size: 1.2rem;
+      color: #a98bcf;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-3px) scale(1.02);
+
+      background: white;
+
+      box-shadow:
+        0 8px 18px -10px rgba(128, 108, 168, 0.2);
+    }
+
+    /* ================================
+       LEARNING NOTE
+    ================================= */
+    .learning-note {
+      margin-top: 1.6rem;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff3e0,
+          #ffecf5
+        );
+
+      padding: 1rem 1.3rem;
+
+      border-radius: 2rem;
+
+      font-size: 0.92rem;
+
+      color: #6a5d8a;
+
+      border-left: 6px solid #f5b0d0;
+    }
+
+    /* ================================
+       GOALS
+    ================================= */
+    .goals-list {
+      list-style: none;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.8rem;
+    }
+
+    .goals-list li {
+      background: #fff;
+
+      padding: 0.9rem 1.2rem;
+
+      border-radius: 1.5rem;
+
+      border: 1px solid #eee2fa;
+
+      color: #514b64;
+
+      transition: 0.25s ease;
+    }
+
+    .goals-list li:hover {
+      transform: translateX(6px);
+
+      background: #fffaff;
+    }
+
+    .goals-list i {
+      color: #d29bc0;
+
+      margin-right: 0.6rem;
+    }
+
+    /* ================================
+       CONTACT
+    ================================= */
+    .contact-info {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 1rem;
+
+      background: #ffffffdd;
+
+      padding: 0.9rem 1.3rem;
+
+      border-radius: 2rem;
+
+      border: 1px solid #f0e2fd;
+
+      transition: 0.25s ease;
+    }
+
+    .contact-item i {
+      width: 2rem;
+
+      font-size: 1.3rem;
+
+      color: #c2a5f0;
+    }
+
+    .contact-detail {
+      font-weight: 500;
+
+      color: #3d3a54;
+
+      word-break: break-word;
+    }
+
+    .contact-item:hover {
+      background: white;
+
+      transform: translateX(6px);
+
+      border-color: #e1ceff;
+
+      box-shadow:
+        0 6px 12px -12px rgba(0,0,0,0.1);
+    }
+
+    /* ================================
+       FOOTER
+    ================================= */
+    .footer-note {
+      text-align: center;
+
+      margin-top: 2rem;
+
+      font-size: 0.85rem;
+
+      color: #b7a2da;
+
+      border-top: 1px solid #f3e7ff;
+
+      padding-top: 1.8rem;
+    }
+
+    /* ================================
+       ANIMATION
+    ================================= */
+    @keyframes gentleShift {
+      0% {
+        background-position: 0% 0%;
+      }
+
+      50% {
+        background-position: 100% 100%;
+      }
+
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    @keyframes floatRise {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .portfolio > * {
+      animation:
+        floatRise 0.7s
+        cubic-bezier(0.2, 0.9, 0.4, 1.1)
+        forwards;
+
+      opacity: 0;
+    }
+
+    .hero-section {
+      animation-delay: 0.05s;
+    }
+
+    .about-section {
+      animation-delay: 0.12s;
+    }
+
+    .interests-section {
+      animation-delay: 0.19s;
+    }
+
+    .skills-section {
+      animation-delay: 0.26s;
+    }
+
+    .goals-section {
+      animation-delay: 0.33s;
+    }
+
+    .contact-section {
+      animation-delay: 0.40s;
+    }
+
+    .footer-note {
+      animation-delay: 0.47s;
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
+    @media (max-width: 600px) {
+
+      body {
+        padding: 1rem;
+      }
+
+      .portfolio {
+        padding: 1.2rem;
+
+        border-radius: 1.8rem;
+      }
+
+      .hero-section {
+        padding: 1.5rem 0.5rem 2rem;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+
+        padding: 0.45rem 1rem;
+      }
+
+      .card {
+        padding: 1.2rem;
+
+        border-radius: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .about-text p {
+        font-size: 0.95rem;
+      }
+
+      .skill-badge {
+        padding: 0.5rem 1rem;
+
+        font-size: 0.85rem;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-item {
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="portfolio">
+
+    <!-- =================================
+         HERO
+    ================================== -->
+    <section class="hero-section">
+
+      <div class="hero-icon">
+        <i class="fas fa-star"></i>
+      </div>
+
+      <h1>Sheena Ugalino</h1>
+
+      <div class="tagline">
+        <i class="fas fa-cloud"></i>
+        learning · dreaming · growing
+      </div>
+
+      <div class="student-info">
+        <i class="fas fa-graduation-cap"></i>
+        Grade 7 Student · Young Learner · Future Dreamer
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         ABOUT ME
+    ================================== -->
+    <section class="about-section card">
+
+      <h2>
+        <i class="fas fa-feather-alt"></i>
+        about me
+      </h2>
+
+      <div class="about-text">
+
+        <p>
+          Hello! I'm <strong>Sheena Ugalino</strong>, a
+          <span class="highlight">Grade 7 student</span>
+          who enjoys learning new things and discovering what I'm capable of.
+        </p>
+
+        <p>
+          I'm still beginning my journey in school and technology,
+          but I'm excited to learn, explore, and improve myself every day.
+          I believe that every small step I take today can help me achieve
+          my dreams in the future. 🌷
+        </p>
+
+        <p>
+          This portfolio is a little space where I can share my interests,
+          skills, goals, and the things I am learning along the way.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         INTERESTS
+    ================================== -->
+    <section class="interests-section card">
+
+      <h2>
+        <i class="fas fa-heart"></i>
+        my interests
+      </h2>
+
+      <p style="color:#685f86; margin-bottom:1rem;">
+        Here are some things that I enjoy and would love to explore more:
+      </p>
+
+      <div class="interest-grid">
+
+        <div class="interest-card">
+
+          <i class="fas fa-laptop-code"></i>
+
+          <h3>Technology</h3>
+
+          <p>
+            Learning how computers and technology work.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fas fa-book-open"></i>
+
+          <h3>Learning</h3>
+
+          <p>
+            Discovering new ideas and gaining knowledge.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fas fa-paint-brush"></i>
+
+          <h3>Creativity</h3>
+
+          <p>
+            Expressing my ideas through creative projects.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fas fa-music"></i>
+
+          <h3>Music</h3>
+
+          <p>
+            Enjoying music and discovering new songs.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         SKILLS
+    ================================== -->
+    <section class="skills-section card">
+
+      <h2>
+        <i class="fas fa-palette"></i>
+        my skills
+      </h2>
+
+      <p style="margin-bottom:0.75rem; color:#685f86;">
+        These are some of the skills I am currently learning and developing:
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="skill-badge">
+          <i class="fas fa-file-word"></i>
+          Microsoft Word
+        </div>
+
+        <div class="skill-badge">
+          <i class="fas fa-file-powerpoint"></i>
+          PowerPoint
+        </div>
+
+        <div class="skill-badge">
+          <i class="fas fa-table"></i>
+          Microsoft Excel
+        </div>
+
+        <div class="skill-badge">
+          <i class="fab fa-html5"></i>
+          HTML & CSS
+        </div>
+
+        <div class="skill-badge">
+          <i class="fas fa-code"></i>
+          Basic Coding
+        </div>
+
+      </div>
+
+      <div class="learning-note">
+
+        <i
+          class="fas fa-sparkles"
+          style="margin-right:0.5rem; color:#e9a6c3;">
+        </i>
+
+        I'm still learning and improving my skills.
+        Every new lesson is another small step toward becoming better
+        at what I do! ✨
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         MY GOALS
+    ================================== -->
+    <section class="goals-section card">
+
+      <h2>
+        <i class="fas fa-bullseye"></i>
+        my goals
+      </h2>
+
+      <ul class="goals-list">
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Improve my skills in technology and computers.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Learn more about HTML, CSS, and programming.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Become more confident in sharing my ideas.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Do my best in school and continue learning.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Build creative and useful projects in the future.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =================================
+         CONTACT
+    ================================== -->
+    <section class="contact-section card">
+
+      <h2>
+        <i class="fas fa-envelope-open-text"></i>
+        let's connect
+      </h2>
+
+      <p style="color:#685f86; margin-bottom:1rem;">
+        Want to know more about me? You can add your contact information below.
+      </p>
+
+      <div class="contact-info">
+
+        <div class="contact-item">
+
+          <i class="fas fa-envelope"></i>
+
+          <span class="contact-detail">
+            your-email@example.com
+          </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <i class="fas fa-phone"></i>
+
+          <span class="contact-detail">
+            Your phone number
+          </span>
+
+        </div>
+
+      </div>
+
+      <div
+        style="
+          margin-top:1.2rem;
+          background:#fff6ea;
+          border-radius:2rem;
+          padding:0.6rem 1.2rem;
+          display:inline-block;
+          font-size:0.85rem;
+          color:#6a5d8a;
+        "
+      >
+
+        <i class="fas fa-clock"></i>
+
+        Thank you for visiting my portfolio! 🌸
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+    <footer class="footer-note">
+
+      <i class="fas fa-sparkles"></i>
+
+      designed with pastel colors & gentle code
+
+      ·
+
+      <strong>Sheena Ugalino</strong>
+
+      <br>
+
+      <span style="font-size:0.75rem;">
+        Grade 7 Student · Keep learning, keep growing 🌷
+      </span>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
+
+You can paste this directly into a file such as index.html and open it in your browser.
+
+
+
+
+Resume.io
+CV Done Right
+ChatGPT gives you a draft. We give you a real CV.
+Ad
+
+You said:
+
+Hello! I'm Sheena Ugalino, a Grade 7 student who enjoys learning new things and discovering what I'm capable of.
+
+I'm still beginning my journey in school and technology, but I'm excited to learn, explore, and improve myself every day. I believe that every small step I take today can help me achieve my dreams in the future. 🌷
+
+This portfolio is a little space where I can share my interests, skills, goals, and the things I am learning along the way.
+
+make this different cuz im a grade 7 student only
+
+ChatGPT said:
+Sure! Since you're a Grade 7 student, we can make it sound more natural, simple, and student-like rather than making it sound too professional.
+
+About Me
+
+
+Hello! I'm Sheena Ugalino, a Grade 7 student who enjoys spending time learning, having fun, and trying new things. I am a simple student who is curious about the world around me and always willing to learn something new.
+
+As a Grade 7 student, I am still discovering my interests and learning more about my strengths. I enjoy school, exploring new ideas, and improving my skills little by little. I know I still have a lot to learn, but I am excited to see how much I can grow.
+
+This portfolio is a small collection of who I am as a student, including my interests, skills, goals, and some of the things I have learned. 🌷
+
+
+
+
+Resume.io
+CV Done Right
+ChatGPT gives you a draft. We give you a real CV.
+Ad
+
+You said:
+
+can you make another and connect it to my personalities as a grade 7 student
+
+ChatGPT said:
+Of course! Here’s a more personal version that focuses on your personality as a Grade 7 student—curious, friendly, still learning, and growing.
+
+About Me
+
+
+Hello! I'm Sheena Ugalino, a Grade 7 student who is a little shy at first but becomes more comfortable once I get to know people. I am a curious and hardworking student who enjoys learning new things, especially when something catches my interest.
+
+Being a Grade 7 student is a new experience for me. There are many things I am still learning about school, friendships, and myself. Sometimes I may feel nervous when trying something new, but I always try my best and remind myself that it is okay to make mistakes because they help me learn and improve.
+
+I may still be young and figuring things out, but I have dreams and goals that I want to achieve someday. For now, I want to enjoy my time as a student, make good memories, learn from my experiences, and become a better version of myself little by little. 🌷✨
+
+
+
+
+Hatchable
+Build a live app from ChatGPT
+We give your app a live URL and everything it needs to work. Free.
+Ad
+
+You said:
+
+drop the whole codew\
+
+ChatGPT said:
+Absolutely — here is the whole updated code, with the new personality-based “About Me” section included. You can copy everything and replace your old index.html.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Sheena Ugalino | My Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* ================================
+       RESET
+    ================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ================================
+       COLORS
+    ================================= */
+    :root {
+      --pastel-yellow: #fff0cf;
+      --pastel-pink: #ffe2f0;
+      --pastel-purple: #e9dcff;
+      --pastel-blue: #d4eaff;
+
+      --soft-lavender: #cbb9ff;
+      --accent-purple: #b49bdf;
+      --accent-pink: #f5b0d0;
+
+      --card-bg: rgba(255, 253, 250, 0.94);
+
+      --text-dark: #403d52;
+      --text-light: #716987;
+
+      --shadow-sm:
+        0 12px 28px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(0, 0, 0, 0.02);
+
+      --shadow-hover:
+        0 24px 36px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ================================
+       BODY
+    ================================= */
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fff9e8 0%,
+          #ffeef8 45%,
+          #eee8ff 100%
+        );
+
+      background-size: 200% 200%;
+      animation: gentleShift 20s ease infinite;
+
+      color: var(--text-dark);
+      line-height: 1.6;
+
+      padding: 2rem 1.5rem;
+
+      min-height: 100vh;
+    }
+
+    /* ================================
+       MAIN PORTFOLIO
+    ================================= */
+    .portfolio {
+      max-width: 1100px;
+      margin: 0 auto;
+
+      background: var(--card-bg);
+
+      backdrop-filter: blur(8px);
+
+      border-radius: 2.5rem;
+
+      padding: 2rem;
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ================================
+       HERO SECTION
+    ================================= */
+    .hero-section {
+      text-align: center;
+
+      padding: 2rem 1rem 3rem;
+
+      margin-bottom: 1rem;
+    }
+
+    .hero-icon {
+      width: 85px;
+      height: 85px;
+
+      margin: 0 auto 1.2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffe0b5,
+          #ffcfdf,
+          #d9c7ff
+        );
+
+      color: #967bbd;
+
+      font-size: 2.4rem;
+
+      box-shadow:
+        0 12px 25px rgba(180, 140, 200, 0.2);
+
+      border: 4px solid white;
+
+      transition: 0.3s ease;
+    }
+
+    .hero-icon:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+
+      font-weight: 700;
+
+      background:
+        linear-gradient(
+          120deg,
+          #9b7bc2,
+          #f0a6c0,
+          #7fa8c9
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      color: transparent;
+
+      letter-spacing: -0.02em;
+
+      margin-bottom: 0.6rem;
+    }
+
+    .tagline {
+      display: inline-block;
+
+      font-size: 1.1rem;
+
+      font-weight: 500;
+
+      background:
+        linear-gradient(
+          120deg,
+          #fce9b4,
+          #ffe0f5
+        );
+
+      padding: 0.5rem 1.4rem;
+
+      border-radius: 60px;
+
+      color: #665a87;
+
+      border: 1px solid #fff3e6;
+
+      box-shadow:
+        0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .tagline i {
+      color: #e9a6c3;
+      margin-right: 6px;
+    }
+
+    .student-info {
+      margin-top: 1rem;
+
+      color: #9e8bbc;
+
+      font-size: 0.95rem;
+    }
+
+    /* ================================
+       CARDS
+    ================================= */
+    .card {
+      background: rgba(255, 255, 252, 0.88);
+
+      backdrop-filter: blur(6px);
+
+      border-radius: 2rem;
+
+      padding: 1.8rem 2rem;
+
+      margin-bottom: 2rem;
+
+      border: 1px solid rgba(220, 200, 250, 0.5);
+
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.02);
+
+      transition:
+        all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow-hover);
+
+      background: rgba(255, 255, 252, 0.98);
+
+      border-color: #f3e0ff;
+    }
+
+    /* ================================
+       HEADINGS
+    ================================= */
+    h2 {
+      font-size: 1.8rem;
+
+      font-weight: 600;
+
+      display: flex;
+      align-items: center;
+
+      gap: 0.7rem;
+
+      color: #5e5180;
+
+      margin-bottom: 1.3rem;
+
+      border-left: 6px solid;
+
+      border-image:
+        linear-gradient(
+          135deg,
+          #ffc3e0,
+          #c1b2ff
+        );
+
+      border-image-slice: 1;
+
+      padding-left: 1rem;
+    }
+
+    h2 i {
+      font-size: 1.5rem;
+
+      color: #b494d4;
+    }
+
+    /* ================================
+       ABOUT ME
+    ================================= */
+    .about-text p {
+      font-size: 1.05rem;
+
+      margin-bottom: 1rem;
+
+      color: #47455c;
+    }
+
+    .highlight {
+      background:
+        linear-gradient(
+          120deg,
+          #fff2cf,
+          #ffe2f0
+        );
+
+      padding: 0.1rem 0.4rem;
+
+      border-radius: 20px;
+
+      font-weight: 500;
+
+      color: #5e4b8b;
+    }
+
+    /* ================================
+       INTERESTS
+    ================================= */
+    .interest-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 1rem;
+
+      margin-top: 1rem;
+    }
+
+    .interest-card {
+      padding: 1.3rem;
+
+      border-radius: 1.5rem;
+
+      text-align: center;
+
+      transition: 0.25s ease;
+
+      border: 1px solid transparent;
+    }
+
+    .interest-card:nth-child(1) {
+      background: #fff4e0;
+      border-color: #ffe1b9;
+    }
+
+    .interest-card:nth-child(2) {
+      background: #ffeef5;
+      border-color: #ffd9ea;
+    }
+
+    .interest-card:nth-child(3) {
+      background: #e9f0ff;
+      border-color: #cfe2ff;
+    }
+
+    .interest-card:nth-child(4) {
+      background: #efe7ff;
+      border-color: #decfff;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-4px) scale(1.02);
+
+      box-shadow:
+        0 10px 20px rgba(100,80,140,0.08);
+    }
+
+    .interest-card i {
+      font-size: 1.8rem;
+
+      color: #a98bcf;
+
+      margin-bottom: 0.6rem;
+    }
+
+    .interest-card h3 {
+      font-size: 1rem;
+
+      color: #51476d;
+
+      margin-bottom: 0.3rem;
+    }
+
+    .interest-card p {
+      font-size: 0.85rem;
+
+      color: #766d89;
+    }
+
+    /* ================================
+       SKILLS
+    ================================= */
+    .skills-grid {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 0.9rem;
+
+      margin-top: 1.2rem;
+    }
+
+    .skill-badge {
+      background: white;
+
+      border-radius: 80px;
+
+      padding: 0.65rem 1.4rem;
+
+      font-weight: 500;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 0.6rem;
+
+      font-size: 0.95rem;
+
+      border: 1px solid #fae6ff;
+
+      box-shadow:
+        0 1px 4px rgba(0,0,0,0.02);
+
+      transition: 0.25s ease;
+    }
+
+    .skill-badge:nth-child(1) {
+      background: #fff4e0;
+      border-color: #ffe1b9;
+    }
+
+    .skill-badge:nth-child(2) {
+      background: #ffeef5;
+      border-color: #ffd9ea;
+    }
+
+    .skill-badge:nth-child(3) {
+      background: #e9f0ff;
+      border-color: #cfe2ff;
+    }
+
+    .skill-badge:nth-child(4) {
+      background: #efe7ff;
+      border-color: #decfff;
+    }
+
+    .skill-badge:nth-child(5) {
+      background: #fff0d6;
+      border-color: #ffe1be;
+    }
+
+    .skill-badge i {
+      font-size: 1.2rem;
+      color: #a98bcf;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-3px) scale(1.02);
+
+      background: white;
+
+      box-shadow:
+        0 8px 18px -10px rgba(128, 108, 168, 0.2);
+    }
+
+    /* ================================
+       LEARNING NOTE
+    ================================= */
+    .learning-note {
+      margin-top: 1.6rem;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff3e0,
+          #ffecf5
+        );
+
+      padding: 1rem 1.3rem;
+
+      border-radius: 2rem;
+
+      font-size: 0.92rem;
+
+      color: #6a5d8a;
+
+      border-left: 6px solid #f5b0d0;
+    }
+
+    /* ================================
+       GOALS
+    ================================= */
+    .goals-list {
+      list-style: none;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.8rem;
+    }
+
+    .goals-list li {
+      background: #fff;
+
+      padding: 0.9rem 1.2rem;
+
+      border-radius: 1.5rem;
+
+      border: 1px solid #eee2fa;
+
+      color: #514b64;
+
+      transition: 0.25s ease;
+    }
+
+    .goals-list li:hover {
+      transform: translateX(6px);
+
+      background: #fffaff;
+    }
+
+    .goals-list i {
+      color: #d29bc0;
+
+      margin-right: 0.6rem;
+    }
+
+    /* ================================
+       CONTACT
+    ================================= */
+    .contact-info {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 1rem;
+
+      background: #ffffffdd;
+
+      padding: 0.9rem 1.3rem;
+
+      border-radius: 2rem;
+
+      border: 1px solid #f0e2fd;
+
+      transition: 0.25s ease;
+    }
+
+    .contact-item i {
+      width: 2rem;
+
+      font-size: 1.3rem;
+
+      color: #c2a5f0;
+    }
+
+    .contact-detail {
+      font-weight: 500;
+
+      color: #3d3a54;
+
+      word-break: break-word;
+    }
+
+    .contact-item:hover {
+      background: white;
+
+      transform: translateX(6px);
+
+      border-color: #e1ceff;
+
+      box-shadow:
+        0 6px 12px -12px rgba(0,0,0,0.1);
+    }
+
+    /* ================================
+       FOOTER
+    ================================= */
+    .footer-note {
+      text-align: center;
+
+      margin-top: 2rem;
+
+      font-size: 0.85rem;
+
+      color: #b7a2da;
+
+      border-top: 1px solid #f3e7ff;
+
+      padding-top: 1.8rem;
+    }
+
+    /* ================================
+       ANIMATIONS
+    ================================= */
+    @keyframes gentleShift {
+      0% {
+        background-position: 0% 0%;
+      }
+
+      50% {
+        background-position: 100% 100%;
+      }
+
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    @keyframes floatRise {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .portfolio > * {
+      animation:
+        floatRise 0.7s
+        cubic-bezier(0.2, 0.9, 0.4, 1.1)
+        forwards;
+
+      opacity: 0;
+    }
+
+    .hero-section {
+      animation-delay: 0.05s;
+    }
+
+    .about-section {
+      animation-delay: 0.12s;
+    }
+
+    .interests-section {
+      animation-delay: 0.19s;
+    }
+
+    .skills-section {
+      animation-delay: 0.26s;
+    }
+
+    .goals-section {
+      animation-delay: 0.33s;
+    }
+
+    .contact-section {
+      animation-delay: 0.40s;
+    }
+
+    .footer-note {
+      animation-delay: 0.47s;
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
+    @media (max-width: 600px) {
+
+      body {
+        padding: 1rem;
+      }
+
+      .portfolio {
+        padding: 1.2rem;
+        border-radius: 1.8rem;
+      }
+
+      .hero-section {
+        padding: 1.5rem 0.5rem 2rem;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+        padding: 0.45rem 1rem;
+      }
+
+      .card {
+        padding: 1.2rem;
+        border-radius: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .about-text p {
+        font-size: 0.95rem;
+      }
+
+      .skill-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-item {
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="portfolio">
+
+    <!-- =================================
+         HERO SECTION
+    ================================== -->
+    <section class="hero-section">
+
+      <div class="hero-icon">
+        <i class="fas fa-star"></i>
+      </div>
+
+      <h1>Sheena Ugalino</h1>
+
+      <div class="tagline">
+        <i class="fas fa-cloud"></i>
+        learning · dreaming · growing
+      </div>
+
+      <div class="student-info">
+        <i class="fas fa-graduation-cap"></i>
+        Grade 7 Student · Young Learner · Future Dreamer
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         ABOUT ME
+    ================================== -->
+    <section class="about-section card">
+
+      <h2>
+        <i class="fas fa-feather-alt"></i>
+        about me
+      </h2>
+
+      <div class="about-text">
+
+        <p>
+          Hello! I'm <strong>Sheena Ugalino</strong>, a
+          <span class="highlight">Grade 7 student</span>
+          who is a little shy at first but becomes more comfortable
+          once I get to know people. I am a curious and hardworking
+          student who enjoys learning new things, especially when
+          something catches my interest.
+        </p>
+
+        <p>
+          Being a Grade 7 student is a new experience for me.
+          There are many things I am still learning about school,
+          friendships, and myself. Sometimes I may feel nervous when
+          trying something new, but I always try my best and remind
+          myself that it is okay to make mistakes because they help
+          me learn and improve.
+        </p>
+
+        <p>
+          I may still be young and figuring things out, but I have
+          dreams and goals that I want to achieve someday. For now,
+          I want to enjoy my time as a student, make good memories,
+          learn from my experiences, and become a better version of
+          myself little by little. 🌷✨
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         MY INTERESTS
+    ================================== -->
+    <section class="interests-section card">
+
+      <h2>
+        <i class="fas fa-heart"></i>
+        my interests
+      </h2>
+
+      <p style="color:#685f86; margin-bottom:1rem;">
+        Here are some things I enjoy and would like to learn more about:
+      </p>
+
+      <div class="interest-grid">
+
+        <div class="interest-card">
+
+          <i class="fas fa-laptop-code"></i>
+
+          <h3>Technology</h3>
+
+          <p>
+            I enjoy discovering how computers and technology work.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fas fa-book-open"></i>
+
+          <h3>Learning</h3>
+
+          <p>
+            I like learning new things and discovering new ideas.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fas fa-paint-brush"></i>
+
+          <h3>Creativity</h3>
+
+          <p>
+            I enjoy expressing my ideas through creative activities.
+          </p>
+
+        </div>
+
+
+        <div class="interest-card">
+
+          <i class="fas fa-music"></i>
+
+          <h3>Music</h3>
+
+          <p>
+            I enjoy listening to music during my free time.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         MY SKILLS
+    ================================== -->
+    <section class="skills-section card">
+
+      <h2>
+        <i class="fas fa-palette"></i>
+        my skills
+      </h2>
+
+      <p style="margin-bottom:0.75rem; color:#685f86;">
+        These are some of the skills I am currently learning and practicing:
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="skill-badge">
+          <i class="fas fa-file-word"></i>
+          Microsoft Word
+        </div>
+
+        <div class="skill-badge">
+          <i class="fas fa-file-powerpoint"></i>
+          PowerPoint
+        </div>
+
+        <div class="skill-badge">
+          <i class="fas fa-table"></i>
+          Microsoft Excel
+        </div>
+
+        <div class="skill-badge">
+          <i class="fab fa-html5"></i>
+          HTML & CSS
+        </div>
+
+        <div class="skill-badge">
+          <i class="fas fa-code"></i>
+          Basic Coding
+        </div>
+
+      </div>
+
+      <div class="learning-note">
+
+        <i
+          class="fas fa-sparkles"
+          style="margin-right:0.5rem; color:#e9a6c3;">
+        </i>
+
+        I am still learning and improving my skills.
+        Every new lesson is another small step toward becoming
+        better at what I do! ✨
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         MY GOALS
+    ================================== -->
+    <section class="goals-section card">
+
+      <h2>
+        <i class="fas fa-bullseye"></i>
+        my goals
+      </h2>
+
+      <ul class="goals-list">
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Do my best in my studies.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Learn more about computers and technology.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Improve my skills and discover new talents.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Become more confident in myself.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Make good memories with my friends and classmates.
+        </li>
+
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Continue growing and becoming a better student.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =================================
+         CONTACT
+    ================================== -->
+    <section class="contact-section card">
+
+      <h2>
+        <i class="fas fa-envelope-open-text"></i>
+        let's connect
+      </h2>
+
+      <p style="color:#685f86; margin-bottom:1rem;">
+        You can add your contact information here.
+      </p>
+
+      <div class="contact-info">
+
+        <div class="contact-item">
+
+          <i class="fas fa-envelope"></i>
+
+          <span class="contact-detail">
+            your-email@example.com
+          </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <i class="fas fa-phone"></i>
+
+          <span class="contact-detail">
+            Your phone number
+          </span>
+
+        </div>
+
+      </div>
+
+      <div
+        style="
+          margin-top:1.2rem;
+          background:#fff6ea;
+          border-radius:2rem;
+          padding:0.6rem 1.2rem;
+          display:inline-block;
+          font-size:0.85rem;
+          color:#6a5d8a;
+        "
+      >
+
+        <i class="fas fa-heart"></i>
+
+        Thank you for visiting my portfolio! 🌸
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+    <footer class="footer-note">
+
+      <i class="fas fa-sparkles"></i>
+
+      designed with pastel colors & gentle code
+
+      ·
+
+      <strong>Sheena Ugalino</strong>
+
+      <br>
+
+      <span style="font-size:0.75rem;">
+        Grade 7 Student · Keep learning, keep growing 🌷
+      </span>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
+
+put a modern design with girly purple theme and put all the information i gave to you give me the whole code okay?
